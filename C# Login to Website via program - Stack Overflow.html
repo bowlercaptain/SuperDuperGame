@@ -1,0 +1,1885 @@
+<!DOCTYPE html>
+<!-- saved from url=(0078)http://stackoverflow.com/questions/930807/c-sharp-login-to-website-via-program -->
+<html itemscope="" itemtype="http://schema.org/QAPage" hola_ext_inject="disabled"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>C# Login to Website via program - Stack Overflow</title>
+    <link rel="shortcut icon" href="http://cdn.sstatic.net/stackoverflow/img/favicon.ico?v=6cd6089ee7f6">
+    <link rel="apple-touch-icon image_src" href="http://cdn.sstatic.net/stackoverflow/img/apple-touch-icon.png?v=41f6e13ade69">
+    <link rel="search" type="application/opensearchdescription+xml" title="Stack Overflow" href="http://stackoverflow.com/opensearch.xml">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:domain" content="stackoverflow.com">
+    <meta property="og:type" content="website">
+    <meta property="og:image" itemprop="image primaryImageOfPage" content="http://cdn.sstatic.net/stackoverflow/img/apple-touch-icon@2.png?v=ea71a5211a91&amp;a">
+    <meta name="twitter:title" property="og:title" itemprop="title name" content="C# Login to Website via program">
+    <meta name="twitter:description" property="og:description" itemprop="description" content="I&#39;m relatively new to using C#, and have an application that reads parts of the source code on a website. That all works; but the problem is that the page in question requires the user to be logged...">
+    <meta property="og:url" content="http://stackoverflow.com/questions/930807/c-sharp-login-to-website-via-program">
+    <link rel="canonical" href="./C# Login to Website via program - Stack Overflow_files/C# Login to Website via program - Stack Overflow.html">
+
+    
+    
+    <script type="text/javascript" async="" src="http://engine.adzerk.net/ados?t=1441253049389&request={%22Placements%22:[{%22A%22:22,%22S%22:8277,%22D%22:%22adzerk1708564272%22,%22AT%22:4,%22Z%22:43},{%22A%22:22,%22S%22:8277,%22D%22:%22adzerk766585989%22,%22AT%22:4,%22Z%22:44},{%22A%22:22,%22S%22:8277,%22D%22:%22adzerk970494783%22,%22ATA%22:[17,2221],%22Z%22:45}],%22Keywords%22:%22c%2523%2Cwebsite%2Clogin%22,%22Referrer%22:%22https%3A%2F%2Fwww.google.com%2F%22,%22IsAsync%22:true}"></script><script async="" src="http://edge.quantserve.com/quant.js"></script><script async="" src="http://b.scorecardresearch.com/beacon.js"></script><script async="" src="http://www.google-analytics.com/analytics.js"></script><script type="text/javascript" async="" src="./C# Login to Website via program - Stack Overflow_files/ados.js"></script><script src="./C# Login to Website via program - Stack Overflow_files/jquery.min.js"></script><style>div[id^="adzerk"],
+.hireme
+{display:none !important;}</style>
+    <script src="./C# Login to Website via program - Stack Overflow_files/stub.en.js"></script>
+    <link rel="stylesheet" type="text/css" href="./C# Login to Website via program - Stack Overflow_files/all.css">
+
+            <link rel="alternate" type="application/atom+xml" title="Feed for question &#39;C# Login to Website via program&#39;" href="http://stackoverflow.com/feeds/question/930807">
+            <meta name="twitter:app:country" content="US">
+            <meta name="twitter:app:name:iphone" content="Stack Exchange iOS">
+            <meta name="twitter:app:id:iphone" content="871299723">
+            <meta name="twitter:app:url:iphone" content="se-zaphod://stackoverflow.com/questions/930807/c-sharp-login-to-website-via-program">
+            <meta name="twitter:app:name:ipad" content="Stack Exchange iOS">
+            <meta name="twitter:app:id:ipad" content="871299723">
+            <meta name="twitter:app:url:ipad" content="se-zaphod://stackoverflow.com/questions/930807/c-sharp-login-to-website-via-program">
+            <meta name="twitter:app:name:googleplay" content="Stack Exchange Android">
+            <meta name="twitter:app:url:googleplay" content="http://stackoverflow.com/questions/930807/c-sharp-login-to-website-via-program">
+            <meta name="twitter:app:id:googleplay" content="com.stackexchange.marvin">
+        <script>
+        
+            StackExchange.ready(function () {
+                    
+                    StackExchange.using("snippets", function () {
+                        StackExchange.snippets.initSnippetRenderer();
+                    });
+                    
+
+                StackExchange.using("postValidation", function () {
+                    StackExchange.postValidation.initOnBlurAndSubmit($('#post-form'), 2, 'answer');
+                });
+
+                
+                StackExchange.question.init({showAnswerHelp:true,totalCommentCount:2,shownCommentCount:2,highlightColor:'#F4A83D',backgroundColor:'#FFF',questionId:930807});
+
+                styleCode();
+
+                    StackExchange.realtime.subscribeToQuestion('1', '930807');
+                                                                    StackExchange.using("gps", function () { StackExchange.gps.trackOutboundClicks('#content', '.post-text'); });
+
+            });
+        </script>
+
+
+    <script>
+        StackExchange.init({"locale":"en","stackAuthUrl":"https://stackauth.com","serverTime":1441253066,"networkMetaHostname":"meta.stackexchange.com","routeName":"Questions/Show","styleCode":true,"enableUserHovercards":true,"snippets":{"enabled":true,"domain":"stacksnippets.net"},"site":{"name":"Stack Overflow","description":"Q&A for professional and enthusiast programmers","isNoticesTabEnabled":true,"recaptchaPublicKey":"6LdchgIAAAAAAJwGpIzRQSOFaO0pU6s44Xt8aTwc","recaptchaAudioLang":"en","enableNewTagCreationWarning":true,"insertSpaceAfterNameTabCompletion":false,"globalAuthDisabled":true,"nonAsciiTags":true,"enableSocialMediaInSharePopup":true},"user":{"fkey":"c0b5e10eb589b8b9d488266b19f4b5e3","isAnonymous":true,"ab":{"tour_signup_cta":{"v":"a","g":2}}}});
+        StackExchange.using.setCacheBreakers({"js/prettify-full.en.js":"28ec4f8398ed","js/moderator.en.js":"a15707694e8d","js/full-anon.en.js":"9575265f4182","js/full.en.js":"f7aad5e5726a","js/wmd.en.js":"87e4f727520e","js/third-party/jquery.autocomplete.min.js":"e5f01e97f7c3","js/third-party/jquery.autocomplete.min.en.js":"","js/mobile.en.js":"7e61c09f6776","js/help.en.js":"b059a29e7262","js/tageditor.en.js":"1f16f03b1a20","js/tageditornew.en.js":"537198c52fcd","js/inline-tag-editing.en.js":"9d7c6b9d01c1","js/revisions.en.js":"9e897f24d78d","js/review.en.js":"aac36cd73107","js/tagsuggestions.en.js":"d1ff9b84abe5","js/post-validation.en.js":"65dd45ab5081","js/explore-qlist.en.js":"cd6e5274146c","js/events.en.js":"b958916511b5","js/keyboard-shortcuts.en.js":"7d374f989f4e","js/external-editor.en.js":"a59c967270f1","js/external-editor.en.js":"a59c967270f1","js/snippet-javascript.en.js":"b7d150df9cac","js/snippet-javascript-codemirror.en.js":"2d8a9536098a"});
+        StackExchange.using("gps", function() {
+             StackExchange.gps.init(true);
+        });
+    </script>
+    
+        <script>
+            StackExchange.ready(function () {
+                $('#nav-tour').click(function () {
+                    StackExchange.using("gps", function() {
+                        StackExchange.gps.track("aboutpage.click", { aboutclick_location: "headermain" }, true);
+                    });
+                });
+            });
+        </script>
+    
+    
+<script async="" src="./C# Login to Website via program - Stack Overflow_files/full-anon.en.js"></script><script async="" src="./C# Login to Website via program - Stack Overflow_files/snippet-javascript.en.js"></script><script async="" src="./C# Login to Website via program - Stack Overflow_files/post-validation.en.js"></script><script async="" src="./C# Login to Website via program - Stack Overflow_files/prettify-full.en.js"></script><script async="" src="./C# Login to Website via program - Stack Overflow_files/external-editor.en.js"></script><script type="text/javascript" src="http://static.adzerk.net/Extensions/adFeedback.js"></script><link rel="stylesheet" href="http://static.adzerk.net/Extensions/adFeedback.css"><script async="" src="./C# Login to Website via program - Stack Overflow_files/p"></script><link type="text/css" rel="stylesheet" href="./C# Login to Website via program - Stack Overflow_files/jobs.min.css"></head>
+<body class="question-page new-topbar" style="zoom: 1;">
+    <noscript>&lt;div id="noscript-padding"&gt;&lt;/div&gt;</noscript>
+    <div id="notify-container"></div>
+    <div id="overlay-header"></div>
+    <div id="custom-header"></div>
+
+
+
+
+<div class="topbar">
+    <div class="topbar-wrapper">
+
+        <div class="js-topbar-dialog-corral">
+
+<div class="topbar-dialog siteSwitcher-dialog dno">
+    <div class="header">
+        <h3><a href="http://stackoverflow.com/">current community</a></h3>
+    </div>
+    <div class="modal-content current-site-container">
+        <ul class="current-site">
+                <li>
+                        <div class="related-links">
+            <a href="http://chat.stackoverflow.com/" class="js-gps-track" data-gps-track="site_switcher.click({ item_type:6 })">chat</a>
+                    <a href="http://blog.stackoverflow.com/" class="js-gps-track" data-gps-track="site_switcher.click({ item_type:7 })">blog</a>
+            </div>
+
+
+
+
+    <a href="http://stackoverflow.com/" class="current-site-link site-link js-gps-track" data-id="1" data-gps-track="
+        site_switcher.click({ item_type:3 })">
+        <div class="site-icon favicon favicon-stackoverflow" title="Stack Overflow"></div>
+        Stack Overflow
+    </a>
+
+                </li>
+                <li class="related-site">
+                        <div class="L-shaped-icon-container">
+        <span class="L-shaped-icon"></span>
+    </div>
+
+                    
+
+
+
+    <a href="http://meta.stackoverflow.com/" class="site-link js-gps-track" data-id="552" data-gps-track="
+            site.switch({ target_site:552, item_type:3 }),
+        site_switcher.click({ item_type:4 })">
+        <div class="site-icon favicon favicon-stackoverflowmeta" title="Meta Stack Overflow"></div>
+        Meta Stack Overflow
+    </a>
+
+                </li>
+                            <li class="related-site">
+                        <div class="L-shaped-icon-container">
+        <span class="L-shaped-icon"></span>
+    </div>
+
+                    <a class="site-link js-gps-track" href="http://careers.stackoverflow.com/?utm_source=stackoverflow.com&utm_medium=site-ui&utm_campaign=multicollider" data-gps-track="site_switcher.click({ item_type:9 })">
+                        <div class="site-icon favicon favicon-careers" title="Stack Overflow Careers"></div>
+                        Stack Overflow Careers
+                    </a>
+                </li>
+        </ul>
+    </div>
+    
+    <div class="header" id="your-communities-header">
+        <h3>
+your communities        </h3>
+            
+    </div>
+    <div class="modal-content" id="your-communities-section">
+            
+            <div class="call-to-login">
+<a href="https://stackoverflow.com/users/signup?returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f930807%2fc-sharp-login-to-website-via-program" class="login-link js-gps-track" data-gps-track="site_switcher.click({ item_type:10 })">Sign up</a> or <a href="https://stackoverflow.com/users/login?returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f930807%2fc-sharp-login-to-website-via-program" class="login-link js-gps-track" data-gps-track="site_switcher.click({ item_type:11 })">log in</a> to customize your list.
+            </div>
+    </div>
+    
+    <div class="header">
+        <h3><a href="http://stackexchange.com/sites">more stack exchange communities</a></h3>
+    </div>
+    <div class="modal-content">
+            <div class="child-content"></div>
+    </div>
+</div>
+        </div>
+
+        <div class="network-items">
+
+            <a href="http://stackexchange.com/" class="topbar-icon icon-site-switcher yes-hover js-site-switcher-button js-gps-track" data-gps-track="site_switcher.show" title="A list of all 150 Stack Exchange sites">
+                <span class="hidden-text">Stack Exchange</span>
+            </a>
+
+        </div>
+
+        <div class="topbar-links">
+
+                <div class="links-container">
+                <span class="topbar-menu-links">
+                                <a href="https://stackoverflow.com/users/signup?returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f930807%2fc-sharp-login-to-website-via-program" class="login-link">sign up</a>
+                                <a href="https://stackoverflow.com/users/login?returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f930807%2fc-sharp-login-to-website-via-program" class="login-link">log in</a>
+
+                        <a href="http://stackoverflow.com/tour">tour</a>
+                            <a href="http://stackoverflow.com/questions/930807/c-sharp-login-to-website-via-program#" class="icon-help js-help-button" title="Help Center and other resources">
+        help
+        <span class="triangle"></span>
+    </a>
+    <div class="topbar-dialog help-dialog js-help-dialog dno">
+        <div class="modal-content">
+            <ul>
+                                    <li>
+                        <a href="http://stackoverflow.com/tour" class="js-gps-track" data-gps-track="help_popup.click({ item_type:1 })">
+                            Tour
+                            <span class="item-summary">
+                                Start here for a quick overview of the site
+                            </span>
+                        </a>
+                    </li>
+                <li>
+                    <a href="http://stackoverflow.com/help" class="js-gps-track" data-gps-track="help_popup.click({ item_type:4 })">
+                        Help Center
+                        <span class="item-summary">
+                            Detailed answers to any questions you might have
+                        </span>
+                    </a>
+                </li>
+                    <li>
+                        <a href="http://meta.stackoverflow.com/" class="js-gps-track" data-gps-track="help_popup.click({ item_type:2 })">
+                            Meta
+                            <span class="item-summary">
+                                Discuss the workings and policies of this site
+                            </span>
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+
+                            <a href="http://careers.stackoverflow.com/?utm_source=stackoverflow.com&utm_medium=site-ui&utm_campaign=anon-topbar">stack overflow careers</a>
+                    </span>
+                </div>
+
+            <div class="search-container">
+                <form id="search" action="http://stackoverflow.com/search" method="get" autocomplete="off">
+                    <input name="q" type="text" placeholder="search" value="" tabindex="1" autocomplete="off" maxlength="240">
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+    <script>
+        StackExchange.ready(function() { StackExchange.topbar.init(); });
+    </script>
+
+    <div class="container">
+        <div id="header">
+            <br class="cbt">
+            <div id="hlogo">
+                <a href="http://stackoverflow.com/">
+                    Stack Overflow
+                </a>
+            </div>
+            <div id="hmenus">
+                <div class="nav mainnavs">
+                    <ul>
+                        <li class="youarehere"><a id="nav-questions" href="http://stackoverflow.com/questions">Questions</a></li>
+                        <li><a id="nav-tags" href="http://stackoverflow.com/tags">Tags</a></li>
+                        <li><a id="nav-users" href="http://stackoverflow.com/users">Users</a></li>
+                        <li><a id="nav-badges" href="http://stackoverflow.com/help/badges">Badges</a></li>
+                        <li><a id="nav-unanswered" href="http://stackoverflow.com/unanswered">Unanswered</a></li>
+                    </ul>
+                </div>
+                <div class="nav askquestion">
+                    <ul>
+                        <li>
+                            <a id="nav-askquestion" href="http://stackoverflow.com/questions/ask">Ask Question</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+
+                <div id="system-message">Ten. Million. Questions. Let's celebrate <a href="http://stackoverflow.com/10m">all we've d<dfn class="dictionary-of-numbers">one together</dfn></a>.
+                </div>
+
+
+        <div id="content" class="snippet-hidden">
+            
+
+<div itemscope="" itemtype="http://schema.org/Question">
+    <link itemprop="image" href="http://cdn.sstatic.net/stackoverflow/img/apple-touch-icon.png?v=41f6e13ade69">
+			<!--googleoff: all-->
+
+<div id="herobox-mini">
+    <div id="hero-content">
+        <span id="controls">
+            <a href="http://stackoverflow.com/tour" id="tell-me-more" class="button">Take the 2-minute tour</a>
+            <span id="close"><a title="click to dismiss">×</a></span>
+        </span>
+        <div id="blurb">
+            Stack Overflow is a question and answer site for professional and enthusiast programmers. It's 100% free.
+        </div>        
+    </div>
+    <script>
+        $('#tell-me-more').click(function () {
+            var clickSource = $("body").attr("class") + '-mini';
+            if ($("body").hasClass("questions-page")) {
+                clickSource = 'questionpagemini';
+            } else if ($("body").hasClass("question-page")) {
+                clickSource = 'questionpagemini';
+            } else if ($("body").hasClass("home-page")) {
+                clickSource = 'homepagemini';
+            }
+
+            StackExchange.using("gps", function () {
+                StackExchange.gps.track("aboutpage.click", { aboutclick_location: clickSource } , true);
+            });
+        });
+        $('#herobox-mini #close').click(function () {
+            StackExchange.using("gps", function () {
+                StackExchange.gps.track("hero.action", { hero_action_type: "close" }, true);
+            });
+            $.cookie("hero", "none", { path: "/", expires: 365 });
+            var $hero = $("#herobox-mini");
+            $hero.slideUp('fast', function () { $hero.remove(); });
+            return false;
+        });
+    </script>
+</div>
+			<!--googleon: all-->
+			<div id="question-header">
+                <h1 itemprop="name"><a href="./C# Login to Website via program - Stack Overflow_files/C# Login to Website via program - Stack Overflow.html" class="question-hyperlink">C# Login to Website via program</a></h1>
+		</div>
+			<div id="mainbar">
+
+			
+
+<div class="question" data-questionid="930807" id="question">
+
+    <script>
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,8277,"adzerk1708564272",4).setZone(43); });
+            </script>
+            <div class="everyonelovesstackoverflow" id="adzerk1708564272"><a href="http://engine.adzerk.net/r?e=eyJhdiI6NDE0LCJhdCI6NCwiYnQiOjAsImNtIjoxODY2MjQsImNoIjoxMTc4LCJjayI6e30sImNyIjo2OTU1MzUsImRpIjoiYjFkOWZiMDAxNjI1NGY2MThlZDJjNmM5ZjY3NmZmZWUiLCJkbSI6MSwiZmMiOjcyMTUzMywiZmwiOjQ0MTMzNCwiaXAiOiI3MC4xOTkuMTI4LjIwMyIsImt3IjoiYyMsd2Vic2l0ZSxsb2dpbiIsIm53IjoyMiwicGMiOjAsInByIjoxNTY4LCJydCI6MSwicmYiOiJodHRwczovL3d3dy5nb29nbGUuY29tLyIsInN0Ijo4Mjc3LCJ1ayI6InVlMS1lMjMzZmY5YjQ2M2Q0OGZlYjQxNDZmMmJkMjgxNjdlZSIsInpuIjo0MywidHMiOjE0NDEyNTMwNjc5NjksImJmIjp0cnVlLCJwbiI6ImFkemVyazE3MDg1NjQyNzIiLCJ1ciI6Imh0dHA6Ly9jYXJlZXJzLnN0YWNrb3ZlcmZsb3cuY29tL2N2L2dldC1vbmU_dXRtX3NvdXJjZT1zdGFja292ZXJmbG93LmNvbSZ1dG1fbWVkaXVtPWFkJnV0bV9jYW1wYWlnbj1jYW5kaWRhdGVzLWFkZC1jdiZ1dG1fY29udGVudD1sYi1sYXVuY2gteW91cnNlbGYtYnV0dG9uIn0&s=tAtKsH3TJ6PS8Iei2dtwo0ZWBg0" rel="nofollow" target="_blank" title=""><img src="http://static.adzerk.net/Advertisers/f6830b35dbe94952b9804183cae231b8.png" title="" alt="" border="0" width="728" height="90" style="display: none !important;"></a><img height="0px" width="0px" border="0" style="position: absolute; display: none !important;" src="http://engine.adzerk.net/i.gif?e=eyJhdiI6NDE0LCJhdCI6NCwiYnQiOjAsImNtIjoxODY2MjQsImNoIjoxMTc4LCJjayI6e30sImNyIjo2OTU1MzUsImRpIjoiYjFkOWZiMDAxNjI1NGY2MThlZDJjNmM5ZjY3NmZmZWUiLCJkbSI6MSwiZmMiOjcyMTUzMywiZmwiOjQ0MTMzNCwiaXAiOiI3MC4xOTkuMTI4LjIwMyIsImt3IjoiYyMsd2Vic2l0ZSxsb2dpbiIsIm53IjoyMiwicGMiOjAsInByIjoxNTY4LCJydCI6MSwicmYiOiJodHRwczovL3d3dy5nb29nbGUuY29tLyIsInN0Ijo4Mjc3LCJ1ayI6InVlMS1lMjMzZmY5YjQ2M2Q0OGZlYjQxNDZmMmJkMjgxNjdlZSIsInpuIjo0MywidHMiOjE0NDEyNTMwNjc5NzAsImJmIjp0cnVlLCJwbiI6ImFkemVyazE3MDg1NjQyNzIifQ&s=f_tWzKcQPPKjXM7gaXdb-0EiIss"></div>    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="930807">
+        <a class="vote-up-off" title="This question shows research effort; it is useful and clear">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">45</span>
+        <a class="vote-down-off" title="This question does not show any research effort; it is unclear or not useful">down vote</a>
+
+        <a class="star-off" href="http://stackoverflow.com/questions/930807/c-sharp-login-to-website-via-program#" title="This is a favorite question (click again to undo)">favorite</a>
+        <div class="favoritecount"><b>48</b></div>
+
+
+</div>
+
+            </td>
+            
+<td class="postcell">
+<div>
+    <div class="post-text" itemprop="text">
+
+<p>I'm relatively new to using C#, and have an application that reads parts of the source code on a website. That all works; but the problem is that the page in question requires the user to be logged in to access this source code. What my program needs a way to initially log the user into the website- after that is done, I'll be able to access and read the source code.</p>
+
+<p>The website that needs to be logged into is:
+mmoinn.com/index.do?PageModule=UsersLogin</p>
+
+<p>I've searched for the entire day about how to do this and tried examples, but have had no luck. </p>
+
+<p>Thanks in advance</p>
+    </div>
+    <div class="post-taglist">
+        <a href="http://stackoverflow.com/questions/tagged/c%23" class="post-tag js-gps-track" title="show questions tagged &#39;c#&#39;" rel="tag">c#</a> <a href="http://stackoverflow.com/questions/tagged/website" class="post-tag js-gps-track" title="show questions tagged &#39;website&#39;" rel="tag">website</a> <a href="http://stackoverflow.com/questions/tagged/login" class="post-tag js-gps-track" title="show questions tagged &#39;login&#39;" rel="tag">login</a> 
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/q/930807" title="short permalink to this question" class="short-link" id="link-post-930807">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/930807/edit" class="suggest-edit-post" title="">improve this question</a></div>        
+    </td>
+    <td class="post-signature owner">
+        <div class="user-info ">
+    <div class="user-action-time">
+        asked <span title="2009-05-30 22:44:50Z" class="relativetime">May 30 '<dfn class="dictionary-of-numbers">09 at </dfn>22:44</span>
+    </div>
+    <div class="user-gravatar32">
+        <span class="anonymous-gravatar"></span>
+    </div>
+    <div class="user-details">
+        Dillon<br>
+        
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</div>
+</td>
+        </tr>
+                
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-930807" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-738770" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">So, I can think of a bunch of ways to do this... Does the C# program request the 'code' directly from the server via HTTP or do you piggy back on the browser application or what?  A bit more info is needed.</span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/37896/mitch-baker" title="544 reputation" class="comment-user">Mitch Baker</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/930807/c-sharp-login-to-website-via-program#comment738770_930807"><span title="2009-05-30 23:16:50Z" class="relativetime-clean">May 30 '<dfn class="dictionary-of-numbers">09 at </dfn>23:16</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-738781" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">The program uses WebClient.DownloadString("URL")</span>
+                –&nbsp;
+		            <span class="comment-user">Dillon</span>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/930807/c-sharp-login-to-website-via-program#comment738781_930807"><span title="2009-05-30 23:24:58Z" class="relativetime-clean">May 30 '<dfn class="dictionary-of-numbers">09 at </dfn>23:24</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-930807" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid answering questions in comments.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="http://stackoverflow.com/questions/930807/c-sharp-login-to-website-via-program#" onclick=""></a>
+        </div>         
+    </td>
+</tr>        </tbody></table>
+</div>
+
+			<div id="answers">
+
+				<a name="tab-top"></a>
+				<div id="answers-header">
+					<div class="subheader answers-subheader">
+						<h2><dfn class="dictionary-of-numbers">
+								5 Answers
+                                </dfn><span style="display:none;" itemprop="answerCount">5</span>
+						</h2>
+						<div>
+							<div id="tabs">
+        <a href="http://stackoverflow.com/questions/930807/c-sharp-login-to-website-via-program?answertab=active#tab-top" data-nav-xhref="" title="Answers with the latest activity first" data-value="active">active</a>
+        <a href="http://stackoverflow.com/questions/930807/c-sharp-login-to-website-via-program?answertab=oldest#tab-top" data-nav-xhref="" title="Answers in the order they were provided" data-value="oldest">oldest</a>
+        <a class="youarehere" href="http://stackoverflow.com/questions/930807/c-sharp-login-to-website-via-program?answertab=votes#tab-top" data-nav-xhref="" title="Answers with the highest score first" data-value="votes">votes</a>
+</div>
+						</div>
+					</div>    
+				</div>    
+
+
+
+
+  
+<a name="931030"></a>
+<div id="answer-931030" class="answer" data-answerid="931030" itemscope="" itemtype="http://schema.org/Answer">
+
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="931030">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">78</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>You can continue using WebClient to POST (instead of GET, which is the <a href="http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol">HTTP verb</a> you're currently using with DownloadString), but I think you'll find it easier to work with the (slightly) lower-level classes WebRequest and WebResponse.</p>
+
+<p>There are <dfn class="dictionary-of-numbers">two parts to this - </dfn>the first is to post the login form, the second is recovering the "Set-cookie" header and sending that back to the server as "Cookie" along with your GET request. The server will use this cookie to identify you from now on (assuming it's using cookie-based authentication which I'm fairly confident it is as that page returns a Set-cookie header which includes "PHPSESSID").</p>
+
+<p></p><hr><p></p>
+
+<p><strong>POSTing to the login form</strong></p>
+
+<p>Form posts are easy to simulate, it's just a case of formatting your post data as follows:</p>
+
+<pre class="lang-cs prettyprint prettyprinted"><code><span class="pln">field1</span><span class="pun">=</span><span class="pln">value1</span><span class="pun">&amp;</span><span class="pln">field2</span><span class="pun">=</span><span class="pln">value2</span></code></pre>
+
+<p>Using WebRequest and code I adapted from <a href="http://www.hanselman.com/blog/HTTPPOSTsAndHTTPGETsWithWebClientAndCAndFakingAPostBack.aspx">Scott Hanselman</a>, here's how you'd POST form data to your login form:</p>
+
+<pre class="lang-cs prettyprint prettyprinted"><code><span class="kwd">string</span><span class="pln"> formUrl </span><span class="pun">=</span><span class="pln"> </span><span class="str">"http://www.mmoinn.com/index.do?PageModule=UsersAction&amp;Action=UsersLogin"</span><span class="pun">;</span><span class="pln"> </span><span class="com">// NOTE: This is the URL the form POSTs to, not the URL of the form (you can find this in the "action" attribute of the HTML's form tag</span><span class="pln">
+</span><span class="kwd">string</span><span class="pln"> formParams </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">string</span><span class="pun">.</span><span class="typ">Format</span><span class="pun">(</span><span class="str">"email_address={0}&amp;password={1}"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"your email"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"your password"</span><span class="pun">);</span><span class="pln">
+</span><span class="kwd">string</span><span class="pln"> cookieHeader</span><span class="pun">;</span><span class="pln">
+</span><span class="typ">WebRequest</span><span class="pln"> req </span><span class="pun">=</span><span class="pln"> </span><span class="typ">WebRequest</span><span class="pun">.</span><span class="typ">Create</span><span class="pun">(</span><span class="pln">formUrl</span><span class="pun">);</span><span class="pln">
+req</span><span class="pun">.</span><span class="typ">ContentType</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="str">"application/x-www-form-urlencoded"</span><span class="pun">;</span><span class="pln">
+req</span><span class="pun">.</span><span class="typ">Method</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="str">"POST"</span><span class="pun">;</span><span class="pln">
+</span><span class="kwd">byte</span><span class="pun">[]</span><span class="pln"> bytes </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Encoding</span><span class="pun">.</span><span class="pln">ASCII</span><span class="pun">.</span><span class="typ">GetBytes</span><span class="pun">(</span><span class="pln">formParams</span><span class="pun">);</span><span class="pln">
+req</span><span class="pun">.</span><span class="typ">ContentLength</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> bytes</span><span class="pun">.</span><span class="typ">Length</span><span class="pun">;</span><span class="pln">
+using </span><span class="pun">(</span><span class="typ">Stream</span><span class="pln"> os </span><span class="pun">=</span><span class="pln"> req</span><span class="pun">.</span><span class="typ">GetRequestStream</span><span class="pun">())</span><span class="pln">
+</span><span class="pun">{</span><span class="pln">
+    os</span><span class="pun">.</span><span class="typ">Write</span><span class="pun">(</span><span class="pln">bytes</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0</span><span class="pun">,</span><span class="pln"> bytes</span><span class="pun">.</span><span class="typ">Length</span><span class="pun">);</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+</span><span class="typ">WebResponse</span><span class="pln"> resp </span><span class="pun">=</span><span class="pln"> req</span><span class="pun">.</span><span class="typ">GetResponse</span><span class="pun">();</span><span class="pln">
+cookieHeader </span><span class="pun">=</span><span class="pln"> resp</span><span class="pun">.</span><span class="typ">Headers</span><span class="pun">[</span><span class="str">"Set-cookie"</span><span class="pun">];</span></code></pre>
+
+<p>Here's an example of what you should see in the Set-cookie header for your login form:</p>
+
+<pre class="lang-cs prettyprint prettyprinted"><code><span class="pln">PHPSESSID</span><span class="pun">=</span><span class="pln">c4812cffcf2c45e0357a5a93c137642e</span><span class="pun">;</span><span class="pln"> path</span><span class="pun">=/;</span><span class="pln"> domain</span><span class="pun">=.</span><span class="pln">mmoinn</span><span class="pun">.</span><span class="pln">com</span><span class="pun">,</span><span class="pln">wowmine_referer</span><span class="pun">=</span><span class="pln">directenter</span><span class="pun">;</span><span class="pln"> path</span><span class="pun">=/;</span><span class="pln"> domain</span><span class="pun">=.</span><span class="pln">mmoinn</span><span class="pun">.</span><span class="pln">com</span><span class="pun">,</span><span class="pln">lang</span><span class="pun">=</span><span class="pln">en</span><span class="pun">;</span><span class="pln"> path</span><span class="pun">=/;</span><span class="pln">domain</span><span class="pun">=.</span><span class="pln">mmoinn</span><span class="pun">.</span><span class="pln">com</span><span class="pun">,</span><span class="pln">adt_usertype</span><span class="pun">=</span><span class="pln">other</span><span class="pun">,</span><span class="pln">adt_host</span><span class="pun">=-</span></code></pre>
+
+<p></p><hr><p></p>
+
+<p><strong>GETting the page behind the login form</strong></p>
+
+<p>Now you can perform your GET request to a page that you need to be logged in for.</p>
+
+<pre class="lang-cs prettyprint prettyprinted"><code><span class="kwd">string</span><span class="pln"> pageSource</span><span class="pun">;</span><span class="pln">
+</span><span class="kwd">string</span><span class="pln"> getUrl </span><span class="pun">=</span><span class="pln"> </span><span class="str">"the url of the page behind the login"</span><span class="pun">;</span><span class="pln">
+</span><span class="typ">WebRequest</span><span class="pln"> getRequest </span><span class="pun">=</span><span class="pln"> </span><span class="typ">WebRequest</span><span class="pun">.</span><span class="typ">Create</span><span class="pun">(</span><span class="pln">getUrl</span><span class="pun">);</span><span class="pln">
+getRequest</span><span class="pun">.</span><span class="typ">Headers</span><span class="pun">.</span><span class="typ">Add</span><span class="pun">(</span><span class="str">"Cookie"</span><span class="pun">,</span><span class="pln"> cookieHeader</span><span class="pun">);</span><span class="pln">
+</span><span class="typ">WebResponse</span><span class="pln"> getResponse </span><span class="pun">=</span><span class="pln"> getRequest</span><span class="pun">.</span><span class="typ">GetResponse</span><span class="pun">();</span><span class="pln">
+using </span><span class="pun">(</span><span class="typ">StreamReader</span><span class="pln"> sr </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">StreamReader</span><span class="pun">(</span><span class="pln">getResponse</span><span class="pun">.</span><span class="typ">GetResponseStream</span><span class="pun">()))</span><span class="pln">
+</span><span class="pun">{</span><span class="pln">
+    pageSource </span><span class="pun">=</span><span class="pln"> sr</span><span class="pun">.</span><span class="typ">ReadToEnd</span><span class="pun">();</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+
+<p><strong>EDIT:</strong></p>
+
+<p>If you need to view the results of the first POST, you can recover the HTML it returned with:</p>
+
+<pre class="lang-cs prettyprint prettyprinted"><code><span class="pln">using </span><span class="pun">(</span><span class="typ">StreamReader</span><span class="pln"> sr </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">StreamReader</span><span class="pun">(</span><span class="pln">resp</span><span class="pun">.</span><span class="typ">GetResponseStream</span><span class="pun">()))</span><span class="pln">
+</span><span class="pun">{</span><span class="pln">
+    pageSource </span><span class="pun">=</span><span class="pln"> sr</span><span class="pun">.</span><span class="typ">ReadToEnd</span><span class="pun">();</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+
+<p>Place this directly below <code>cookieHeader = resp.Headers["Set-cookie"];</code> and then inspect the string held in pageSource.</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/931030" title="short permalink to this answer" class="short-link" id="link-post-931030">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/931030/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td align="right" class="post-signature">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="http://stackoverflow.com/posts/931030/revisions" title="show all edits to this post">edited <span title="2009-05-31 02:43:44Z" class="relativetime">May 31 '<dfn class="dictionary-of-numbers">09 at </dfn>2:43</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        <br>
+        
+    </div>
+</div>    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2009-05-31 01:33:03Z" class="relativetime">May 31 '<dfn class="dictionary-of-numbers">09 at </dfn>1:33</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/40050/matthew-brindley"><div class="gravatar-wrapper-32"><img src="./C# Login to Website via program - Stack Overflow_files/cdd362a1c487de3094fa89977d0b4298" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/40050/matthew-brindley">Matthew Brindley</a><br>
+        <span class="reputation-score" title="reputation score " dir="ltr">5,990</span><span title="29 silver badges"><span class="badge2"></span><span class="badgecount">29</span></span><span title="46 bronze badges"><span class="badge3"></span><span class="badgecount">46</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-931030" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="1" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-739041" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Thanks a lot for the detailed response; but there's still <dfn class="dictionary-of-numbers">one part that I</dfn>'m unsure of. Am I supposed to be changing something regarding "Set -cookie", "Cookie", or the "PHPSESSID" you posted? I tried simply using that code in a program with inputting my information, but it doesn't seem to be logging me in (I assume I'm screwing something up with the cookies).</span>
+                –&nbsp;
+		            <span class="comment-user">Dillon</span>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/930807/c-sharp-login-to-website-via-program#comment739041_931030"><span title="2009-05-31 02:35:15Z" class="relativetime-clean">May 31 '<dfn class="dictionary-of-numbers">09 at </dfn>2:35</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-739053" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">The code should be OK to use verbatim. The server sets the cookie (in Set-cookie) and the client (that's you) sends the cookie back up as Cookie).  The first thing to check is that the first POST actually logs you in, you may find the server expected another field in your form POST  (as strange as it sounds, you sometimes need an empty field with the button's name).  I've updated the post to show how to view the results of the POST.</span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/40050/matthew-brindley" title="5990 reputation" class="comment-user">Matthew Brindley</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/930807/c-sharp-login-to-website-via-program#comment739053_931030"><span title="2009-05-31 02:41:18Z" class="relativetime-clean">May 31 '<dfn class="dictionary-of-numbers">09 at </dfn>2:41</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-739089" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">I'm not sure what I was doing wrong the first time, but it works now! Thanks a lot for the help.</span>
+                –&nbsp;
+		            <span class="comment-user">Dillon</span>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/930807/c-sharp-login-to-website-via-program#comment739089_931030"><span title="2009-05-31 03:17:40Z" class="relativetime-clean">May 31 '<dfn class="dictionary-of-numbers">09 at </dfn>3:17</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-15943841" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Good description +1</span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/735259/ryu-kaplan" title="1323 reputation" class="comment-user">Ryu Kaplan</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/930807/c-sharp-login-to-website-via-program#comment15943841_931030"><span title="2012-08-15 02:30:49Z" class="relativetime-clean">Aug 15 '<dfn class="dictionary-of-numbers">12 at </dfn>2:30</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-17812010" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">How can I determine if the user successfully authenticated?</span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/1218281/cyral" title="9280 reputation" class="comment-user">Cyral</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/930807/c-sharp-login-to-website-via-program#comment17812010_931030"><span title="2012-10-27 21:37:21Z" class="relativetime-clean">Oct 27 '<dfn class="dictionary-of-numbers">12 at </dfn>21:37</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-931030" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link  dno" title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."></a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link " title="expand to show all comments on this post" href="http://stackoverflow.com/questions/930807/c-sharp-login-to-website-via-program#" onclick="">show <b>1</b> more comment</a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+<script>
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,8277,"adzerk766585989",4).setZone(44); });
+            </script>
+            <div class="everyonelovesstackoverflow" id="adzerk766585989"><a href="http://engine.adzerk.net/r?e=eyJhdiI6NDE0LCJhdCI6NCwiYnQiOjAsImNtIjoxODY2MjQsImNoIjoxMTc4LCJjayI6e30sImNyIjo3MjQyOTQsImRpIjoiMGJjM2E1MTU2MzMyNGRkYTg2Mjc0YjVkNDBiYTY3OTMiLCJkbSI6MSwiZmMiOjc1NDA4OCwiZmwiOjQxMDE4MywiaXAiOiI3MC4xOTkuMTI4LjIwMyIsImt3IjoiYyMsd2Vic2l0ZSxsb2dpbiIsIm53IjoyMiwicGMiOjAsInByIjoxNTY4LCJydCI6MSwicmYiOiJodHRwczovL3d3dy5nb29nbGUuY29tLyIsInN0Ijo4Mjc3LCJ1ayI6InVlMS1lMjMzZmY5YjQ2M2Q0OGZlYjQxNDZmMmJkMjgxNjdlZSIsInpuIjo0NCwidHMiOjE0NDEyNTMwNjc5NzEsImJmIjp0cnVlLCJwbiI6ImFkemVyazc2NjU4NTk4OSIsInVyIjoiaHR0cDovL2NhcmVlcnMuc3RhY2tvdmVyZmxvdy5jb20vY3YvZ2V0LW9uZT91dG1fc291cmNlPXN0YWNrb3ZlcmZsb3cuY29tJnV0bV9tZWRpdW09YWQmdXRtX2NhbXBhaWduPWNhbmRpZGF0ZXMtYWRkLWN2JnV0bV9jb250ZW50PWxiLWNhcmVlcnMtZ29vZ2xlIn0&s=7HB9K8YvpaFdcu8T4yTrANAxv-s" rel="nofollow" target="_blank" title=""><img src="http://static.adzerk.net/Advertisers/a6c57de34e96424c8e5371b688ace94f.png" title="" alt="" border="0" width="728" height="90" style="display: none !important;"></a><img height="0px" width="0px" border="0" style="position: absolute; display: none !important;" src="http://engine.adzerk.net/i.gif?e=eyJhdiI6NDE0LCJhdCI6NCwiYnQiOjAsImNtIjoxODY2MjQsImNoIjoxMTc4LCJjayI6e30sImNyIjo3MjQyOTQsImRpIjoiMGJjM2E1MTU2MzMyNGRkYTg2Mjc0YjVkNDBiYTY3OTMiLCJkbSI6MSwiZmMiOjc1NDA4OCwiZmwiOjQxMDE4MywiaXAiOiI3MC4xOTkuMTI4LjIwMyIsImt3IjoiYyMsd2Vic2l0ZSxsb2dpbiIsIm53IjoyMiwicGMiOjAsInByIjoxNTY4LCJydCI6MSwicmYiOiJodHRwczovL3d3dy5nb29nbGUuY29tLyIsInN0Ijo4Mjc3LCJ1ayI6InVlMS1lMjMzZmY5YjQ2M2Q0OGZlYjQxNDZmMmJkMjgxNjdlZSIsInpuIjo0NCwidHMiOjE0NDEyNTMwNjc5NzIsImJmIjp0cnVlLCJwbiI6ImFkemVyazc2NjU4NTk4OSJ9&s=7cAJNtGdsTiWZRpzt928iVPDmlA"></div>
+  
+<a name="1031335"></a>
+<div id="answer-1031335" class="answer" data-answerid="1031335" itemscope="" itemtype="http://schema.org/Answer">
+
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="1031335">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">20</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>You can simplify things quite a bit by creating a class that derives from WebClient, overriding its GetWebRequest method and setting a CookieContainer object on it. If you always set the same CookieContainer instance, then cookie management will be handled automatically for you.</p>
+
+<p>But the only way to get at the HttpWebRequest before it is sent is to inherit from WebClient and override that method.</p>
+
+<pre class="lang-cs prettyprint prettyprinted"><code><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">CookieAwareWebClient</span><span class="pln"> </span><span class="pun">:</span><span class="pln"> </span><span class="typ">WebClient</span><span class="pln">
+</span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">private</span><span class="pln"> </span><span class="typ">CookieContainer</span><span class="pln"> cookie </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">CookieContainer</span><span class="pun">();</span><span class="pln">
+
+    </span><span class="kwd">protected</span><span class="pln"> </span><span class="kwd">override</span><span class="pln"> </span><span class="typ">WebRequest</span><span class="pln"> </span><span class="typ">GetWebRequest</span><span class="pun">(</span><span class="typ">Uri</span><span class="pln"> address</span><span class="pun">)</span><span class="pln">
+    </span><span class="pun">{</span><span class="pln">
+        </span><span class="typ">WebRequest</span><span class="pln"> request </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">base</span><span class="pun">.</span><span class="typ">GetWebRequest</span><span class="pun">(</span><span class="pln">address</span><span class="pun">);</span><span class="pln">
+        </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">request </span><span class="kwd">is</span><span class="pln"> </span><span class="typ">HttpWebRequest</span><span class="pun">)</span><span class="pln">
+        </span><span class="pun">{</span><span class="pln">
+            </span><span class="pun">(</span><span class="pln">request </span><span class="kwd">as</span><span class="pln"> </span><span class="typ">HttpWebRequest</span><span class="pun">).</span><span class="typ">CookieContainer</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> cookie</span><span class="pun">;</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">
+        </span><span class="kwd">return</span><span class="pln"> request</span><span class="pun">;</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="kwd">var</span><span class="pln"> client </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">CookieAwareWebClient</span><span class="pun">();</span><span class="pln">
+client</span><span class="pun">.</span><span class="typ">BaseAddress</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="str">@"https://www.site.com/any/base/url/"</span><span class="pun">;</span><span class="pln">
+</span><span class="kwd">var</span><span class="pln"> loginData </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">NameValueCollection</span><span class="pun">();</span><span class="pln">
+loginData</span><span class="pun">.</span><span class="typ">Add</span><span class="pun">(</span><span class="str">"login"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"YourLogin"</span><span class="pun">);</span><span class="pln">
+loginData</span><span class="pun">.</span><span class="typ">Add</span><span class="pun">(</span><span class="str">"password"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"YourPassword"</span><span class="pun">);</span><span class="pln">
+client</span><span class="pun">.</span><span class="typ">UploadValues</span><span class="pun">(</span><span class="str">"login.php"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"POST"</span><span class="pun">,</span><span class="pln"> loginData</span><span class="pun">);</span><span class="pln">
+
+</span><span class="com">//Now you are logged in and can request pages    </span><span class="pln">
+</span><span class="kwd">string</span><span class="pln"> htmlSource </span><span class="pun">=</span><span class="pln"> client</span><span class="pun">.</span><span class="typ">DownloadString</span><span class="pun">(</span><span class="str">"index.php"</span><span class="pun">);</span></code></pre>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/1031335" title="short permalink to this answer" class="short-link" id="link-post-1031335">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/1031335/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td align="right" class="post-signature">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="http://stackoverflow.com/posts/1031335/revisions" title="show all edits to this post">edited <span title="2011-06-02 10:01:32Z" class="relativetime">Jun 2 '<dfn class="dictionary-of-numbers">11 at </dfn>10:01</span></a>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/393945/dima-stefantsov"><div class="gravatar-wrapper-32"><img src="./C# Login to Website via program - Stack Overflow_files/c9343ab3ab5396f9ad8441a3526caf36" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/393945/dima-stefantsov">Dima Stefantsov</a><br>
+        <span class="reputation-score" title="reputation score " dir="ltr">605</span><span title="11 silver badges"><span class="badge2"></span><span class="badgecount">11</span></span><span title="11 bronze badges"><span class="badge3"></span><span class="badgecount">11</span></span>
+    </div>
+</div>    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2009-06-23 08:31:29Z" class="relativetime">Jun 23 '<dfn class="dictionary-of-numbers">09 at </dfn>8:31</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/81769/josh"><div class="gravatar-wrapper-32"><img src="./C# Login to Website via program - Stack Overflow_files/7777ffe2fa27e4122e73d6e4e0c8ecb4" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/81769/josh">Josh</a><br>
+        <span class="reputation-score" title="reputation score 43119" dir="ltr"><dfn class="dictionary-of-numbers">43.1k</dfn></span><span title="2 gold badges"><span class="badge1"></span><span class="badgecount">2</span></span><span title="89 silver badges"><span class="badge2"></span><span class="badgecount">89</span></span><span title="116 bronze badges"><span class="badge3"></span><span class="badgecount">116</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-1031335" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-14843831" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">very good code, but dosen't work well for ajax pages</span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/362461/smith" title="1995 reputation" class="comment-user">Smith</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/930807/c-sharp-login-to-website-via-program#comment14843831_1031335"><span title="2012-07-01 20:04:48Z" class="relativetime-clean">Jul 1 '<dfn class="dictionary-of-numbers">12 at </dfn>20:04</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-18504510" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">works fine! other solutions did not work for my site! thanks</span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/1175637/unr3al011" title="344 reputation" class="comment-user">unr<dfn class="dictionary-of-numbers">3al</dfn>011</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/930807/c-sharp-login-to-website-via-program#comment18504510_1031335"><span title="2012-11-22 17:22:24Z" class="relativetime-clean">Nov 22 '<dfn class="dictionary-of-numbers">12 at </dfn>17:22</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-1031335" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="http://stackoverflow.com/questions/930807/c-sharp-login-to-website-via-program#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="930830"></a>
+<div id="answer-930830" class="answer" data-answerid="930830" itemscope="" itemtype="http://schema.org/Answer">
+
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="930830">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">4</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>You can always use the <a href="http://watin.sourceforge.net/" rel="nofollow">Watin web test</a> framework.</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/930830" title="short permalink to this answer" class="short-link" id="link-post-930830">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/930830/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2009-05-30 23:08:20Z" class="relativetime">May 30 '<dfn class="dictionary-of-numbers">09 at </dfn>23:08</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/3584/magnus"><div class="gravatar-wrapper-32"><img src="./C# Login to Website via program - Stack Overflow_files/f2064e4b575a8f935a5bbb05f0316ea2" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/3584/magnus">Magnus</a><br>
+        <span class="reputation-score" title="reputation score 16626" dir="ltr"><dfn class="dictionary-of-numbers">16.6k</dfn></span><span title="9 gold badges"><span class="badge1"></span><span class="badgecount">9</span></span><span title="57 silver badges"><span class="badge2"></span><span class="badgecount">57</span></span><span title="105 bronze badges"><span class="badge3"></span><span class="badgecount">105</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-930830" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-930830" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="http://stackoverflow.com/questions/930807/c-sharp-login-to-website-via-program#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="8454516"></a>
+<div id="answer-8454516" class="answer" data-answerid="8454516" itemscope="" itemtype="http://schema.org/Answer">
+
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="8454516">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">4</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p><a href="http://stackoverflow.com/users/40050/matthew-brindley">Matthew Brindley</a>, your code worked very good for some website I needed (with login), but I needed to change to <code>HttpWebRequest</code> and <code>HttpWebResponse</code> otherwise I get a <em><dfn class="dictionary-of-numbers">404 Bad Request</dfn></em> from the remote server. Also I would like to share my workaround using your code, and is that I tried it to login to a <em>website based on moodle</em>, but it didn't work at your step "<strong>GETting the page behind the login form</strong>" because when successfully <em>POSTing</em> the login, the Header <code>'Set-Cookie'</code> didn't return anything despite other websites does. </p>
+
+<p>So I think this where we need to store cookies for next Requests, so I added this.
+<br><br><br>
+To the "<strong>POSTing to the login form</strong>" code block :</p>
+
+<pre class="lang-cs prettyprint prettyprinted"><code><span class="kwd">var</span><span class="pln"> cookies </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">CookieContainer</span><span class="pun">();</span><span class="pln">
+</span><span class="typ">HttpWebRequest</span><span class="pln"> req </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="typ">HttpWebRequest</span><span class="pun">)</span><span class="typ">WebRequest</span><span class="pun">.</span><span class="typ">Create</span><span class="pun">(</span><span class="pln">formUrl</span><span class="pun">);</span><span class="pln">
+req</span><span class="pun">.</span><span class="typ">CookieContainer</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> cookies</span><span class="pun">;</span></code></pre>
+
+<p><br>
+And To the "<strong>GETting the page behind the login form</strong>" :</p>
+
+<pre class="lang-cs prettyprint prettyprinted"><code><span class="typ">HttpWebRequest</span><span class="pln"> getRequest </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="typ">HttpWebRequest</span><span class="pun">)</span><span class="typ">WebRequest</span><span class="pun">.</span><span class="typ">Create</span><span class="pun">(</span><span class="pln">getUrl</span><span class="pun">);</span><span class="pln">
+getRequest</span><span class="pun">.</span><span class="typ">CookieContainer</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">CookieContainer</span><span class="pun">();</span><span class="pln">
+getRequest</span><span class="pun">.</span><span class="typ">CookieContainer</span><span class="pun">.</span><span class="typ">Add</span><span class="pun">(</span><span class="pln">resp</span><span class="pun">.</span><span class="typ">Cookies</span><span class="pun">);</span><span class="pln">
+getRequest</span><span class="pun">.</span><span class="typ">Headers</span><span class="pun">.</span><span class="typ">Add</span><span class="pun">(</span><span class="str">"Cookie"</span><span class="pun">,</span><span class="pln"> cookieHeader</span><span class="pun">);</span></code></pre>
+
+<p><br>
+Doing this, lets me <em>Log me in</em> and get the source code of the "page behind login" (website based moodle) I know this is a vague use of the <code>CookieContainer</code> and HTTPCookies because we may ask first is there a previously set of cookies saved before sending the request to the server. This works without problem anyway, but here's a good info to read about <code>WebRequest</code> and <code>WebResponse</code> with sample projects and tutorial:<br>
+<a href="http://www.west-wind.com/presentations/dotnetWebRequest/dotnetWebRequest.htm" rel="nofollow">Retrieving HTTP content in .NET</a><br>
+<a href="http://www.codeproject.com/KB/IP/httpwebrequest_response.aspx" rel="nofollow">How to use HttpWebRequest and HttpWebResponse in .NET</a></p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/8454516" title="short permalink to this answer" class="short-link" id="link-post-8454516">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/8454516/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td align="right" class="post-signature">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="http://stackoverflow.com/posts/8454516/revisions" title="show all edits to this post">edited <span title="2011-12-10 05:19:38Z" class="relativetime">Dec 10 '<dfn class="dictionary-of-numbers">11 at </dfn>5:19</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        <br>
+        
+    </div>
+</div>    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2011-12-10 05:01:02Z" class="relativetime">Dec 10 '<dfn class="dictionary-of-numbers">11 at </dfn>5:01</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/1044653/whysoserious"><div class="gravatar-wrapper-32"><img src="./C# Login to Website via program - Stack Overflow_files/87ff52810161a2888da5bcb128f2e962" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/1044653/whysoserious">WhySoSerious</a><br>
+        <span class="reputation-score" title="reputation score " dir="ltr">792</span><span title="8 silver badges"><span class="badge2"></span><span class="badgecount">8</span></span><span title="14 bronze badges"><span class="badge3"></span><span class="badgecount">14</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-8454516" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-8454516" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="http://stackoverflow.com/questions/930807/c-sharp-login-to-website-via-program#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="2814912"></a>
+<div id="answer-2814912" class="answer" data-answerid="2814912" itemscope="" itemtype="http://schema.org/Answer">
+
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="2814912">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">1</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>Sometimes, it may help switching off <code>AllowAutoRedirect</code> and setting both login <code>POST</code> and page <code>GET</code> requests the same user agent.</p>
+
+<pre class="lang-cs prettyprint prettyprinted"><code><span class="pln">request</span><span class="pun">.</span><span class="typ">UserAgent</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> userAgent</span><span class="pun">;</span><span class="pln">
+request</span><span class="pun">.</span><span class="typ">AllowAutoRedirect</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span></code></pre>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/2814912" title="short permalink to this answer" class="short-link" id="link-post-2814912">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/2814912/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2010-05-11 22:35:43Z" class="relativetime">May 11 '<dfn class="dictionary-of-numbers">10 at </dfn>22:35</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/121968/tn"><div class="gravatar-wrapper-32"><img src="./C# Login to Website via program - Stack Overflow_files/3261efe3034f240025387c46059220d0" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/121968/tn">TN.</a><br>
+        <span class="reputation-score" title="reputation score " dir="ltr">4,827</span><span title="8 gold badges"><span class="badge1"></span><span class="badgecount">8</span></span><span title="47 silver badges"><span class="badge2"></span><span class="badgecount">47</span></span><span title="88 bronze badges"><span class="badge3"></span><span class="badgecount">88</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-2814912" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-2814912" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="http://stackoverflow.com/questions/930807/c-sharp-login-to-website-via-program#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+									<a name="new-answer"></a>
+						<form id="post-form" action="http://stackoverflow.com/questions/930807/answer/submit" method="post" class="post-form">
+						    <input type="hidden" id="post-id" value="930807">
+                            <input type="hidden" id="qualityBanWarningShown" name="qualityBanWarningShown" value="false">
+                            <input type="hidden" name="referrer" value="https://www.google.com/">
+							<h2 class="space">Your Answer</h2>
+
+
+
+            <script>
+            StackExchange.ifUsing("editor", function () {
+                StackExchange.using("externalEditor", function () {
+                    StackExchange.using("snippets", function () {
+                        StackExchange.snippets.init();
+                    });
+                });
+            }, "code-snippets");
+        </script>
+    
+
+<script>
+    StackExchange.ready(function() {
+        initTagRenderer("".split(" "), "".split(" "));
+       
+        StackExchange.using("externalEditor", function() {
+            // Have to fire editor after snippets, if snippets enabled
+            if (StackExchange.options.snippets.enabled) {
+                StackExchange.using("snippets", function() {
+                    createEditor();
+                });
+            }
+            else {
+                createEditor();
+            }
+        });
+
+        function createEditor() {
+            prepareEditor({
+                heartbeatType: 'answer',
+                bindNavPrevention: true,
+                postfix: "",
+                    onDemand: true,
+                    discardSelector: ".discard-answer"
+                ,immediatelyShowMarkdownHelp:true
+                });
+                
+
+        }
+    });  
+</script>
+
+
+<div id="post-editor" class="post-editor js-post-editor">
+
+    <div style="position: relative;">     
+        <div class="wmd-container">
+            <div id="wmd-button-bar" class="wmd-button-bar"><ul id="wmd-button-row" class="wmd-button-row"><li id="wmd-bold-button" class="wmd-button" style="left: 0px;"><span style="background-position: 0px -20px;"></span></li><li id="wmd-italic-button" class="wmd-button" style="left: 25px;"><span style="background-position: -20px -20px;"></span></li><li id="wmd-spacer1" class="wmd-spacer" style="left: 50px;"><span style="background-position: -40px -20px;"></span></li><li id="wmd-link-button" class="wmd-button" style="left: 75px;"><span style="background-position: -40px -20px;"></span></li><li id="wmd-quote-button" class="wmd-button" style="left: 100px;"><span style="background-position: -60px -20px;"></span></li><li id="wmd-code-button" class="wmd-button" style="left: 125px;"><span style="background-position: -80px -20px;"></span></li><li id="wmd-image-button" class="wmd-button" style="left: 150px;"><span style="background-position: -100px -20px;"></span></li><li id="wmd-spacer2" class="wmd-spacer" style="left: 175px;"><span style="background-position: -120px -20px;"></span></li><li id="wmd-olist-button" class="wmd-button" style="left: 200px;"><span style="background-position: -120px -20px;"></span></li><li id="wmd-ulist-button" class="wmd-button" style="left: 225px;"><span style="background-position: -140px -20px;"></span></li><li id="wmd-heading-button" class="wmd-button" style="left: 250px;"><span style="background-position: -160px -20px;"></span></li><li id="wmd-hr-button" class="wmd-button" style="left: 275px;"><span style="background-position: -180px -20px;"></span></li><li id="wmd-spacer3" class="wmd-spacer" style="left: 300px;"><span style="background-position: -200px -20px;"></span></li><li id="wmd-undo-button" class="wmd-button" style="left: 325px;"><span style="background-position: -200px -20px;"></span></li><li id="wmd-redo-button" class="wmd-button" style="left: 350px;"><span style="background-position: -220px -20px;"></span></li></ul></div>
+            <textarea id="wmd-input" class="wmd-input" name="post-text" cols="92" rows="15" tabindex="101" data-min-length=""></textarea>
+        </div>
+    </div>
+
+    <div class="fl" style="margin-top: 8px; height:24px;">&nbsp;</div>
+    <div id="draft-saved" class="draft-saved community-option fl" style="margin-top: 8px; height:24px; display:none;">draft saved</div>
+
+    <div id="draft-discarded" class="draft-discarded community-option fl" style="margin-top: 8px; height:24px; display:none;">draft discarded</div>
+
+
+
+    <div id="wmd-preview" class="wmd-preview"></div>
+    <div></div>
+    <div class="edit-block">
+        <input id="fkey" name="fkey" type="hidden" value="c0b5e10eb589b8b9d488266b19f4b5e3">
+        <input id="author" name="author" type="text">
+    </div>
+
+
+
+</div>
+							<div style="position: relative;">
+								
+            <div class="form-item new-post-login">
+        
+                <div class="new-login-form">
+                    <div class="new-login-left">
+                        <h3>Sign up or <a id="login-link" href="http://stackoverflow.com/users/login?returnurl=%2fquestions%2f930807%2fc-sharp-login-to-website-via-program%23new-answer">log in</a></h3>
+                        <script>
+                            StackExchange.ready(function () {
+                                StackExchange.helpers.onClickDraftSave('#login-link');
+                            });
+                        </script>
+                        <div class="preferred-login google-login">
+                            <p><span class="icon"></span><span>Sign up using Google</span></p>
+                        </div>
+                        <div class="preferred-login facebook-login">
+                            <p><span class="icon"></span><span>Sign up using Facebook</span></p>
+                        </div>
+                        <div class="preferred-login stackexchange-login">
+                            <p><span class="icon"></span><span>Sign up using Stack Exchange</span></p>
+                        </div>
+                    </div>
+                    <input type="hidden" name="manual-openid" class="manual-openid">
+                    <input type="hidden" name="use-facebook" class="use-facebook" value="false">
+                    <input type="hidden" name="use-google" class="use-google" value="false">
+                    <input type="button" class="submit-openid" value="Submit" style="display:none">
+                    <div class="new-login-right">
+                                <h3>Post as a guest</h3>
+    <div class="form-item">
+        <table>
+        <tbody><tr>
+                    <td class="vm">
+                <div>
+                    <label for="display-name">Name</label>
+                    <input id="display-name" name="display-name" type="text" size="30" maxlength="30" value="" tabindex="105">
+                </div>
+                <div>
+                    <label for="m-address">Email</label>
+                    <input id="m-address" name="m-address" type="email" size="30" maxlength="100" value="" tabindex="106" placeholder="required, but never shown">
+                </div>
+            </td>
+        </tr>
+        </tbody></table>
+    </div>
+
+                    </div>
+                </div>
+            </div>
+            <script>
+                StackExchange.ready(
+                    function () {
+                        StackExchange.openid.initPostLogin('.new-post-login', '%2fquestions%2f930807%2fc-sharp-login-to-website-via-program%23new-answer');
+                    }
+                );
+            </script>
+            <noscript>
+                        &lt;h3&gt;Post as a guest&lt;/h3&gt;
+    &lt;div class="form-item"&gt;
+        &lt;table&gt;
+        &lt;tr&gt;
+                    &lt;td class="vm"&gt;
+                &lt;div&gt;
+                    &lt;label for="display-name"&gt;Name&lt;/label&gt;
+                    &lt;input id="display-name" name="display-name" type="text" size="30" maxlength="30" value="" tabindex="105"&gt;
+                &lt;/div&gt;
+                &lt;div&gt;
+                    &lt;label for="m-address"&gt;Email&lt;/label&gt;
+                    &lt;input id="m-address" name="m-address" type="email" size="30" maxlength="100" value="" tabindex="106" placeholder="required, but never shown" /&gt;
+                &lt;/div&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;/table&gt;
+    &lt;/div&gt;
+
+            </noscript>
+							</div>
+           
+															<div class="form-submit cbt">
+									<input id="submit-button" type="submit" value="Post Your Answer" tabindex="110">
+									<a href="http://stackoverflow.com/questions/930807/c-sharp-login-to-website-via-program#" class="discard-answer dno">discard</a>
+
+<p class="privacy-policy-agreement">
+By posting your answer, you agree to the <a href="http://stackexchange.com/legal/privacy-policy" target="_blank">privacy policy</a> and <a href="http://stackexchange.com/legal/terms-of-service" target="_blank">terms of service</a>.</p>
+<input type="hidden" name="legalLinksShown" value="1">								</div>
+						</form>
+
+
+
+			</div>
+		</div>
+				<div id="sidebar" class="show-votes">
+						    <div class="module question-stats">
+			        <table id="qinfo">
+			            <tbody><tr>
+			                <td>
+			                    <p class="label-key">asked</p>
+			                </td>
+			                <td style="padding-left: 10px">
+			                    <p class="label-key" title="2009-05-30 22:44:50Z"><b><dfn class="dictionary-of-numbers dictionary-of-numbers-quantity-189216000s dictionary-of-numbers-processed">6 years</dfn> ago</b></p>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>
+			                    <p class="label-key">viewed</p>
+			                </td>
+
+			                <td style="padding-left: 10px">
+			                    <p class="label-key">
+			                        <b><dfn class="dictionary-of-numbers">73531 times</dfn></b>
+			                    </p>
+			                </td>
+			            </tr>
+			                <tr>
+			                    <td>
+			                        <p class="label-key">active</p>
+			                    </td>
+			                    <td style="padding-left: 10px">
+			                        <p class="label-key"><b><a href="http://stackoverflow.com/questions/930807/c-sharp-login-to-website-via-program?lastactivity" class="lastactivity-link" title="2012-03-19 09:15:04Z"><dfn class="dictionary-of-numbers dictionary-of-numbers-quantity-94608000s dictionary-of-numbers-processed">3 years</dfn> ago</a></b></p>
+			                    </td>
+			                </tr>
+			        </tbody></table>
+			    </div>
+						
+			<script>
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,8277,"adzerk970494783",[17,2221]).setZone(45); });
+            </script>
+            <div class="everyonelovesstackoverflow" id="adzerk970494783"><div id="careersadsdoublehigh" style="display:none;"></div><img height="0px" width="0px" border="0" style="position: absolute; display: none !important;" src="http://engine.adzerk.net/i.gif?e=eyJhdiI6NDE0LCJhdCI6MTcsImJ0IjowLCJjbSI6OTIxLCJjaCI6MTE3OCwiY2siOnt9LCJjciI6MjY4OCwiZGkiOiJiYTkzZjY0ODU0NmY0ZTZkOTViODIyMGNiZjMyZGMyNCIsImRtIjoxLCJmYyI6MjQ4NSwiZmwiOjI2NjMsImlwIjoiNzAuMTk5LjEyOC4yMDMiLCJrdyI6ImMjLHdlYnNpdGUsbG9naW4iLCJudyI6MjIsInBjIjowLCJwciI6NjE3MzcsInJ0IjoxLCJyZiI6Imh0dHBzOi8vd3d3Lmdvb2dsZS5jb20vIiwic3QiOjgyNzcsInVrIjoidWUxLWUyMzNmZjliNDYzZDQ4ZmViNDE0NmYyYmQyODE2N2VlIiwiem4iOjQ1LCJ0cyI6MTQ0MTI1MzA2Nzk3MywiYmYiOnRydWUsInBuIjoiYWR6ZXJrOTcwNDk0NzgzIn0&s=gq77NJ45ndD27krBiKK7P7ppesY"></div>
+        <div id="hireme" class=" orange near-you tagged"><a href="http://careers.stackoverflow.com/jobs/location/Bellevue%2C%20Washington%2C%20United%20States" target="_blank" data-loc="Bellevue%2C%20Washington%2C%20United%20States" data-hf="h" class="top"> <span>Jobs near you</span></a><ul class="jobs"><li><a data-cid="179763" href="http://careers.stackoverflow.com/jobs/93780/senior-software-engineer-microsoft-visual-studio" target="_blank" title="Senior Software Engineer at Microsoft - Visual Studio Online. Click to learn more.">Senior Software Engineer<br><div class="company">Microsoft - Visual Studio…</div><div class="location" title="Redmond, WA / relocation">Redmond, WA / relocation</div><span class="post-tag highlight">c#</span><span class="post-tag">javascript</span></a></li><li><a data-cid="180040" href="http://careers.stackoverflow.com/jobs/94057/senior-web-developer-labelmaster-software" target="_blank" title="Senior Web Developer at Labelmaster Software. Click to learn more.">Senior Web Developer<br><div class="company">Labelmaster Software</div><div class="location" title="Seattle, WA">Seattle, WA</div><span class="post-tag highlight">c#</span><span class="post-tag">mongodb</span></a></li><li><a data-cid="181863" href="http://careers.stackoverflow.com/jobs/95885/technical-product-manager-author-it" target="_blank" title="Technical Product Manager at Author it. Click to learn more.">Technical Product Manager<br><div class="company">Author it</div><div class="location" title="Seattle, WA">Seattle, WA</div><span class="post-tag">software</span><span class="post-tag">program</span></a></li><li><a data-cid="178478" href="http://careers.stackoverflow.com/jobs/92476/senior-software-engineer-microsoft-visual-studio" target="_blank" title="Senior Software Engineer at Microsoft - Visual Studio Online. Click to learn more.">Senior Software Engineer<br><div class="company">Microsoft - Visual Studio…</div><div class="location" title="Redmond, WA / relocation">Redmond, WA / relocation</div><span class="post-tag highlight">c#</span><span class="post-tag">sql</span></a></li></ul><a class="bottom city" href="http://careers.stackoverflow.com/jobs/location/Bellevue%2C%20Washington%2C%20United%20States" target="_blank" data-hf="f" data-loc="Bellevue%2C%20Washington%2C%20United%20States">More jobs near Bellevue…</a><img class="impression" src="./C# Login to Website via program - Stack Overflow_files/i" style="display:none;"></div>
+			  
+    
+            <div class="module sidebar-linked">
+	<h4 id="h-linked">Linked</h4>
+	<div class="linked" data-tracker="lq=1">
+<div class="spacer">
+	<a href="http://stackoverflow.com/q/26176495?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">0</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/26176495/fetch-data-from-url-protected-by-username-and-password?lq=1" class="question-hyperlink">Fetch data from URL protected by username and password</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/2798610?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">5</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/2798610/login-to-website-and-use-cookie-to-get-source-for-another-page?lq=1" class="question-hyperlink">Login to website and use cookie to get source for another page</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/14000185?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">1</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/14000185/how-to-interact-with-a-website-without-a-browser?lq=1" class="question-hyperlink">How to interact with a website without a browser?</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/10452077?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">4</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/10452077/c-sharp-webbrowser-automation?lq=1" class="question-hyperlink">C# Webbrowser Automation</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/25756304?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">3</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/25756304/logging-into-a-website-using-c-sharp-programmatically?lq=1" class="question-hyperlink">Logging Into A Website Using C# Programmatically</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/13159589?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">10</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/13159589/how-to-handle-authenticatication-with-httpwebrequest-allowautoredirect?lq=1" class="question-hyperlink">How to handle authenticatication with HttpWebRequest.AllowAutoRedirect?</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/8065856?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">0</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/8065856/how-to-programmatically-log-in-to-a-website?lq=1" class="question-hyperlink">How to Programmatically Log in to a Website</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/7838925?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">3</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/7838925/get-html-source-of-current-page-in-c-sharp-windows-forms-app?lq=1" class="question-hyperlink">Get Html source of current page in C# Windows Forms App</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/7884158?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">3</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/7884158/logging-into-a-website-using-httpwebrequest-response-in-c?lq=1" class="question-hyperlink">Logging into a website using HttpWebRequest/Response in C#?</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/5548702?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">3</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/5548702/invoke-button-submit-using-webkitbrowser?lq=1" class="question-hyperlink">invoke button submit using webkitbrowser</a>
+</div>					<div class="spacer more">
+				<a href="http://stackoverflow.com/questions/linked/930807?lq=1">see more linked questions…</a>
+			</div>
+	</div>
+</div>
+
+				<div class="module sidebar-related">
+					<h4 id="h-related">Related</h4>
+                    <div class="related js-gps-related-questions" data-tracker="rq=1">
+                        <div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/5758279?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">0
+    </div>
+</a><a href="http://stackoverflow.com/questions/5758279/website-login-security-system-double-check-ip-based-whitelisting-via-already-i?rq=1" class="question-hyperlink">Website login Security system double-check: ip-based whitelisting, via already-in-system email addresses</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/8336590?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes default">1
+    </div>
+</a><a href="http://stackoverflow.com/questions/8336590/curl-405-error-when-attempting-a-website-login?rq=1" class="question-hyperlink">Curl<dfn class="dictionary-of-numbers"> 405 error when attempting </dfn>a website login</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/12248833?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes default">3
+    </div>
+</a><a href="http://stackoverflow.com/questions/12248833/having-problems-when-trying-to-login-to-a-website-using-c-cli?rq=1" class="question-hyperlink">Having problems when trying to login to a website using C++/cli</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/12279014?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">1
+    </div>
+</a><a href="http://stackoverflow.com/questions/12279014/login-on-a-website-using-c-sharp-and-httprequest?rq=1" class="question-hyperlink">Login on a Website using c# and HTTPrequest</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/18469060?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes default">0
+    </div>
+</a><a href="http://stackoverflow.com/questions/18469060/website-login-and-scraping-html?rq=1" class="question-hyperlink">Website Login And Scraping HTML</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/22357576?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes default">0
+    </div>
+</a><a href="http://stackoverflow.com/questions/22357576/is-it-possible-to-login-via-code-to-a-website-whose-enableeventvalidation-is-tru?rq=1" class="question-hyperlink">Is it possible to login via code to a website whose EnableEventValidation is true?</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/23516527?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes default">0
+    </div>
+</a><a href="http://stackoverflow.com/questions/23516527/how-to-programmatically-log-into-website-in-python?rq=1" class="question-hyperlink">How to programmatically log into website in Python</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/24849328?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes default">1
+    </div>
+</a><a href="http://stackoverflow.com/questions/24849328/writing-a-java-program-to-login-to-http-php-website?rq=1" class="question-hyperlink">Writing a java program to login to HTTP PHP website</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/27357844?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">1
+    </div>
+</a><a href="http://stackoverflow.com/questions/27357844/c-sharp-login-to-a-website?rq=1" class="question-hyperlink">C# Login to a website</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/29368615?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes default">0
+    </div>
+</a><a href="http://stackoverflow.com/questions/29368615/asp-net-c-sharp-login-redirect?rq=1" class="question-hyperlink">ASP.NET C# Login Redirect</a>
+</div>
+
+                    </div>
+				</div>
+            
+<div id="hot-network-questions" class="module">
+    <h4>
+        <a href="http://stackexchange.com/questions?tab=hot" class="js-gps-track" data-gps-track="posts_hot_network.click({ item_type:1, location:11 })">
+            Hot Network Questions
+        </a>
+    </h4>
+    <ul>
+            <li>
+                <div class="favicon favicon-photo" title="Photography Stack Exchange"></div><a href="http://photo.stackexchange.com/questions/67960/does-all-photographic-film-utilize-gelatin-in-its-composition" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:61 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Does all photographic film utilize gelatin in its composition?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-gaming" title="Arqade"></div><a href="http://gaming.stackexchange.com/questions/234182/how-do-you-deploy-mister-handy" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:41 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How do you deploy mister handy?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-math" title="Mathematics Stack Exchange"></div><a href="http://math.stackexchange.com/questions/1419038/opposite-of-fermats-last-theorem" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:69 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Opposite of Fermat's Last Theorem?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-workplace" title="The Workplace Stack Exchange"></div><a href="http://workplace.stackexchange.com/questions/52889/after-a-phone-interview-is-it-okay-to-ask-hr-what-the-technical-questions-i-was" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:423 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    After a ph<dfn class="dictionary-of-numbers">one interview</dfn>, is it okay to ask HR what the technical questions I was asked during the ph<dfn class="dictionary-of-numbers">one interview were</dfn>?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-ell" title="English Language Learners Stack Exchange"></div><a href="http://ell.stackexchange.com/questions/66045/i-did-a-gig-in-a-fertility-clinic-i-got-a-standing-ovulation" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:481 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    I did a gig in a fertility clinic. I got a standing ovulation
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-unix" title="Unix &amp; Linux Stack Exchange"></div><a href="http://unix.stackexchange.com/questions/227070/why-does-a-z-match-lowercase-letters-in-bash" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:106 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why does [A-Z] match lowercase letters in bash?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-math" title="Mathematics Stack Exchange"></div><a href="http://math.stackexchange.com/questions/1416053/why-do-both-sine-and-cosine-exist" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:69 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why do both sine and cosine exist?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-electronics" title="Electrical Engineering Stack Exchange"></div><a href="http://electronics.stackexchange.com/questions/188696/why-is-the-load-voltage-greater-than-the-supply-voltage-in-an-ac-circuit" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:135 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why is the load voltage greater than the supply voltage in an AC circuit?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-english" title="English Language &amp; Usage Stack Exchange"></div><a href="http://english.stackexchange.com/questions/270784/if-1-is-primary-2-is-secondary-3-is-tertiary-what-is-0" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:97 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    If<dfn class="dictionary-of-numbers"> 1 is primary</dfn><dfn class="dictionary-of-numbers">, 2 is secondary</dfn><dfn class="dictionary-of-numbers">, 3 is tertiary</dfn>, what is 0?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-space" title="Space Exploration Stack Exchange"></div><a href="http://space.stackexchange.com/questions/10890/when-the-iss-moves-do-the-astronauts-feel-it" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:508 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    When the ISS moves, do the astronauts feel it?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-codegolf" title="Programming Puzzles &amp; Code Golf Stack Exchange"></div><a href="http://codegolf.stackexchange.com/questions/55857/print-this-question-%e2%86%93" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:200 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Print This Question ↓
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-codegolf" title="Programming Puzzles &amp; Code Golf Stack Exchange"></div><a href="http://codegolf.stackexchange.com/questions/55880/find-the-occurrences-of-a-character-in-an-input-string" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:200 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Find the occurrences of a character in an input string
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-buddhism" title="Buddhism Stack Exchange"></div><a href="http://buddhism.stackexchange.com/questions/11266/do-buddhists-fall-in-love" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:565 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Do buddhists fall in love?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-travel" title="Travel Stack Exchange"></div><a href="http://travel.stackexchange.com/questions/54213/why-do-hostels-require-you-to-rent-bedding" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:273 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why do hostels require you to 'rent' bedding?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-math" title="Mathematics Stack Exchange"></div><a href="http://math.stackexchange.com/questions/1418897/the-galois-connection-between-topological-closure-and-topological-interior" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:69 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    The Galois connection between topological closure and topological interior
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-worldbuilding" title="Worldbuilding Stack Exchange"></div><a href="http://worldbuilding.stackexchange.com/questions/23948/how-to-conquer-a-country-forever" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:579 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How to conquer a country, forever
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-physics" title="Physics Stack Exchange"></div><a href="http://physics.stackexchange.com/questions/203933/squaring-a-vector" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:151 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Squaring a Vector?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-math" title="Mathematics Stack Exchange"></div><a href="http://math.stackexchange.com/questions/1418783/when-are-products-of-binomial-coefficients-equal" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:69 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    When are products of binomial coefficients equal?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-scifi" title="Science Fiction &amp; Fantasy Stack Exchange"></div><a href="http://scifi.stackexchange.com/questions/100753/in-harry-potter-is-it-only-children-who-can-do-instinctive-magic" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:186 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    In Harry Potter, is it only children who can do 'instinctive magic'?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-physics" title="Physics Stack Exchange"></div><a href="http://physics.stackexchange.com/questions/203576/why-can-we-see-through-rain" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:151 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why can we see through rain?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-dba" title="Database Administrators Stack Exchange"></div><a href="http://dba.stackexchange.com/questions/112881/nolock-hint-changes-order-of-records-returned" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:182 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    NOLOCK hint changes order of records returned
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-salesforce" title="Salesforce Stack Exchange"></div><a href="http://salesforce.stackexchange.com/questions/90298/how-to-detect-in-visualforce-page-if-what-object-it-is-based-on-parameter-id" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:459 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How to detect in visualforce page if what object it is based on parameter ID
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-puzzling" title="Puzzling Stack Exchange"></div><a href="http://puzzling.stackexchange.com/questions/20825/xor-is-it-possible-to-get-a-b-c-from-a%e2%8a%95b-b%e2%8a%95c-a%e2%8a%95c" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:559 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    XOR - Is it possible to get a, b, c from a⊕b, b⊕c, a⊕c?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-superuser" title="Super User"></div><a href="http://superuser.com/questions/966212/does-the-sequence-number-of-tcp-packet-headers-wrap-around" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:3 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Does the sequence number of TCP packet headers wrap around?
+                </a>
+
+            </li>
+    </ul>
+
+        
+</div>
+		</div>
+	
+<div id="feed-link">
+    <div id="feed-link-text">
+        <a href="http://stackoverflow.com/feeds/question/930807" title="feed of this question and its answers">
+            <span class="feed-icon"></span>question feed
+        </a>
+    </div>
+</div>	<script>
+StackExchange.ready(function(){$.get('/posts/930807/ivc/c261');});
+</script>
+<noscript>
+    &lt;div&gt;&lt;img src="/posts/930807/ivc/c261" class="dno" alt="" width="0" height="0"&gt;&lt;/div&gt;
+</noscript><div style="display:none" id="prettify-lang">lang-cs</div></div>
+
+
+        </div>
+    </div>
+    <div id="footer" class="categories">
+        <div class="footerwrap">
+            <div id="footer-menu">
+                <div class="top-footer-links">
+                        <a href="http://stackoverflow.com/tour">tour</a>
+                    <a href="http://stackoverflow.com/help">help</a>
+                    <a href="http://blog.stackoverflow.com/?blb=1">blog</a>
+                        <a href="http://chat.stackoverflow.com/">chat</a>
+                    <a href="http://data.stackexchange.com/">data</a>
+                    <a href="http://stackexchange.com/legal">legal</a>
+                    <a href="http://stackexchange.com/legal/privacy-policy">privacy policy</a>
+                    <a href="http://stackexchange.com/work-here">work here</a>
+                    <a href="http://stackexchange.com/mediakit">advertising info</a>
+
+                    <a onclick="StackExchange.switchMobile(&quot;on&quot;)">mobile</a>
+                    <b><a href="http://stackoverflow.com/contact">contact us</a></b>
+                        <b><a href="http://meta.stackoverflow.com/">feedback</a></b>
+                    
+                </div>
+                <div id="footer-sites">
+                    <table>
+    <tbody><tr>
+            <th colspan="3">
+                Technology
+            </th>
+            <th>
+                Life / Arts
+            </th>
+            <th>
+                Culture / Recreation
+            </th>
+            <th>
+                Science
+            </th>
+            <th>
+                Other
+            </th>
+    </tr>
+    <tr>
+            <td>
+                <ol>
+                        <li><a href="http://stackoverflow.com/" title="professional and enthusiast programmers">Stack Overflow</a></li>
+                        <li><a href="http://serverfault.com/" title="system and network administrators">Server Fault</a></li>
+                        <li><a href="http://superuser.com/" title="computer enthusiasts and power users">Super User</a></li>
+                        <li><a href="http://webapps.stackexchange.com/" title="power users of web applications">Web Applications</a></li>
+                        <li><a href="http://askubuntu.com/" title="Ubuntu users and developers">Ask Ubuntu</a></li>
+                        <li><a href="http://webmasters.stackexchange.com/" title="pro webmasters">Webmasters</a></li>
+                        <li><a href="http://gamedev.stackexchange.com/" title="professional and independent game developers">Game Development</a></li>
+                        <li><a href="http://tex.stackexchange.com/" title="users of TeX, LaTeX, ConTeXt, and related typesetting systems">TeX - LaTeX</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="http://programmers.stackexchange.com/" title="professional programmers interested in conceptual questions about software development">Programmers</a></li>
+                        <li><a href="http://unix.stackexchange.com/" title="users of Linux, FreeBSD and other Un*x-like operating systems.">Unix &amp; Linux</a></li>
+                        <li><a href="http://apple.stackexchange.com/" title="power users of Apple hardware and software">Ask Different (Apple)</a></li>
+                        <li><a href="http://wordpress.stackexchange.com/" title="WordPress developers and administrators">WordPress Development</a></li>
+                        <li><a href="http://gis.stackexchange.com/" title="cartographers, geographers and GIS professionals">Geographic Information Systems</a></li>
+                        <li><a href="http://electronics.stackexchange.com/" title="electronics and electrical engineering professionals, students, and enthusiasts">Electrical Engineering</a></li>
+                        <li><a href="http://android.stackexchange.com/" title="enthusiasts and power users of the Android operating system">Android Enthusiasts</a></li>
+                        <li><a href="http://security.stackexchange.com/" title="information security professionals">Information Security</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="http://dba.stackexchange.com/" title="database professionals who wish to improve their database skills and learn from others in the community">Database Administrators</a></li>
+                        <li><a href="http://drupal.stackexchange.com/" title="Drupal developers and administrators">Drupal Answers</a></li>
+                        <li><a href="http://sharepoint.stackexchange.com/" title="SharePoint enthusiasts">SharePoint</a></li>
+                        <li><a href="http://ux.stackexchange.com/" title="user experience researchers and experts">User Experience</a></li>
+                        <li><a href="http://mathematica.stackexchange.com/" title="users of Mathematica">Mathematica</a></li>
+                        <li><a href="http://salesforce.stackexchange.com/" title="Salesforce administrators, implementation experts, developers and anybody in-between">Salesforce</a></li>
+                        <li><a href="http://expressionengine.stackexchange.com/" title="administrators, end users, developers and designers for ExpressionEngine® CMS">ExpressionEngine® Answers</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#technology" class="more">
+                                more (13)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://photo.stackexchange.com/" title="professional, enthusiast and amateur photographers">Photography</a></li>
+                        <li><a href="http://scifi.stackexchange.com/" title="science fiction and fantasy enthusiasts">Science Fiction &amp; Fantasy</a></li>
+                        <li><a href="http://graphicdesign.stackexchange.com/" title="Graphic Design professionals, students, and enthusiasts">Graphic Design</a></li>
+                        <li><a href="http://movies.stackexchange.com/" title="movie and tv enthusiasts">Movies &amp; TV</a></li>
+                        <li><a href="http://cooking.stackexchange.com/" title="professional and amateur chefs">Seasoned Advice (cooking)</a></li>
+                        <li><a href="http://diy.stackexchange.com/" title="contractors and serious DIYers">Home Improvement</a></li>
+                        <li><a href="http://money.stackexchange.com/" title="people who want to be financially literate">Personal Finance &amp; Money</a></li>
+                        <li><a href="http://academia.stackexchange.com/" title="academics and those enrolled in higher education">Academia</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#lifearts" class="more">
+                                more (9)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://english.stackexchange.com/" title="linguists, etymologists, and serious English language enthusiasts">English Language &amp; Usage</a></li>
+                        <li><a href="http://skeptics.stackexchange.com/" title="scientific skepticism">Skeptics</a></li>
+                        <li><a href="http://judaism.stackexchange.com/" title="those who base their lives on Jewish law and tradition and anyone interested in learning more">Mi Yodeya (Judaism)</a></li>
+                        <li><a href="http://travel.stackexchange.com/" title="road warriors and seasoned travelers">Travel</a></li>
+                        <li><a href="http://christianity.stackexchange.com/" title="committed Christians, experts in Christianity and those interested in learning more">Christianity</a></li>
+                        <li><a href="http://gaming.stackexchange.com/" title="passionate videogamers on all platforms">Arqade (gaming)</a></li>
+                        <li><a href="http://bicycles.stackexchange.com/" title="people who build and repair bicycles, people who train cycling, or commute on bicycles">Bicycles</a></li>
+                        <li><a href="http://rpg.stackexchange.com/" title="gamemasters and players of tabletop, paper-and-pencil role-playing games">Role-playing Games</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#culturerecreation" class="more">
+                                more (21)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://math.stackexchange.com/" title="people studying math at any level and professionals in related fields">Mathematics</a></li>
+                        <li><a href="http://stats.stackexchange.com/" title="people interested in statistics, machine learning, data analysis, data mining, and data visualization">Cross Validated (stats)</a></li>
+                        <li><a href="http://cstheory.stackexchange.com/" title="theoretical computer scientists and researchers in related fields">Theoretical Computer Science</a></li>
+                        <li><a href="http://physics.stackexchange.com/" title="active researchers, academics and students of physics">Physics</a></li>
+                        <li><a href="http://mathoverflow.net/" title="professional mathematicians">MathOverflow</a></li>
+                        <li><a href="http://chemistry.stackexchange.com/" title="scientists, academics, teachers and students">Chemistry</a></li>
+                        <li><a href="http://biology.stackexchange.com/" title="biology researchers, academics, and students">Biology</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#science" class="more">
+                                more (5)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://stackapps.com/" title="apps, scripts, and development with the Stack Exchange API">Stack Apps</a></li>
+                        <li><a href="http://meta.stackexchange.com/" title="meta-discussion of the Stack Exchange family of Q&amp;A websites">Meta Stack Exchange</a></li>
+                        <li><a href="http://area51.stackexchange.com/" title="proposing new sites in the Stack Exchange network">Area 51</a></li>
+                        <li><a href="http://careers.stackoverflow.com/">Stack Overflow Careers</a></li>
+                    
+                </ol>
+            </td>
+    </tr>
+</tbody></table>
+                </div>
+            </div>
+
+            <div id="copyright">
+                site design / logo ©<dfn class="dictionary-of-numbers"> 2015 Stack Exchange Inc</dfn>; user contributions licensed under <a href="http://creativecommons.org/licenses/by-sa/3.0/" rel="license">cc by-sa 3.0</a> 
+                with <a href="http://blog.stackoverflow.com/2009/06/attribution-required/" rel="license">attribution required</a>
+            </div>
+            <div id="svnrev">
+                rev 2015.9.2.710
+            </div>
+            
+        </div>
+    </div>
+    <noscript>
+        &lt;div id="noscript-warning"&gt;Stack Overflow works best with JavaScript enabled&lt;img src="http://pixel.quantserve.com/pixel/p-c1rF4kxgLUzNc.gif" alt="" class="dno"&gt;&lt;/div&gt;
+    </noscript>
+<script>var p = "http", d = "static"; if (document.location.protocol == "https:") { p += "s"; d = "engine"; } var z = document.createElement("script"); z.type = "text/javascript"; z.async = true; z.src = p + "://" + d + ".adzerk.net/ados.js"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(z, s);</script>
+<script>
+    var ados = ados || {};
+    ados.run = ados.run || [];
+    ados.run.push(function () { ados_setKeywords('c%23,website,login');; ados_load(); });         
+</script>
+
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m);
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-5620270-1');        
+        
+        ga('set', 'dimension2', '|c#|website|login|');         
+        ga('send', 'pageview');
+        var _qevents = _qevents || [],
+            _comscore = _comscore || [];
+        (function () {
+            var ssl='https:'==document.location.protocol,
+                s=document.getElementsByTagName('script')[0],
+                qc=document.createElement('script');
+            qc.async=true;
+            qc.src=(ssl?'https://secure':'http://edge')+'.quantserve.com/quant.js';
+            s.parentNode.insertBefore(qc, s);
+            var sc=document.createElement('script');
+            sc.async=true;
+            sc.src=(ssl?'https://sb':'http://b') + '.scorecardresearch.com/beacon.js';
+            s.parentNode.insertBefore(sc, s);
+        })();
+        _comscore.push({ c1: "2", c2: "17440561" });
+        _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+    </script>
+            
+    
+<style>#content > #center > .dose > .dosesingle,
+#content > #right > .dose > .dosesingle,
+#header + #content > #left > #rlblock_left
+{display:none !important;}</style></body></html>
