@@ -17,7 +17,7 @@ public class WebSlinger : MonoBehaviour {
 
     public void Start()
     {
-        StartCoroutine(Login("sompm", "ancron2"));
+        StartCoroutine(Login("toaster", "zugzwang"));
         
     }
 
@@ -34,17 +34,35 @@ public class WebSlinger : MonoBehaviour {
 
     public IEnumerator Login(string username, string password)
     {
-        WWW lolRequest = new WWW("http://superdupergames.org/");
-        yield return lolRequest;
-        string setCookie = lolRequest.responseHeaders["SET-COOKIE"];
-        sessionCookie = setCookie.Substring(0, setCookie.IndexOf(';') + 1);
-        Dictionary<string, string> headers = new Dictionary<string, string>();
-        string formString = "mode=auth&username=" + username + "&password=" + password;
-        byte[] postData = GetBytes(formString);
-        Hashtable table = new Hashtable();
-        table.Add("cookie", sessionCookie);
-        WWW firstRequest = new WWW("http://superdupergames.org/auth.html",postData,table);
+
+        //var client = new RestClient("http://superdupergames.org/auth.html");
+        //var request = new RestRequest(Method.POST);
+        //request.AddHeader("authorization", "Basic dG9hc3Rlcjp6dWd6d2FuZw==");
+        //request.AddHeader("content-type", "multipart/form-data; boundary=---011000010111000001101001");
+        //request.AddParameter("multipart/form-data; boundary=---011000010111000001101001", "-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"mode\"\r\n\r\nauth\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"username\"\r\n\r\ntoaster\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"password\"\r\n\r\nzugzwang\r\n-----011000010111000001101001--", ParameterType.RequestBody);
+        //IRestResponse response = client.Execute(request);
+
+        
+     
+        //Dictionary<string, string> headers = new Dictionary<string, string>();
+        //string formString = "-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"mode\"\r\n\r\nauth\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"username\"\r\n\r\ntoaster\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"password\"\r\n\r\nzugzwang\r\n-----011000010111000001101001--";
+        
+        //byte[] postData = GetBytes(formString);
+        //Hashtable table = new Hashtable();
+        //table.Add("cookie", sessionCookie);
+        WWWForm form = new WWWForm();
+        form.AddField("mode", "auth");
+        form.AddField("username", username);
+        form.AddField("password", password);
+        Hashtable headers = new Hashtable(form.headers);
+        Debug.Log(headers["Content-Type"]);
+        headers["Content-Type"]="multipart/form-data";
+        WWW firstRequest = new WWW("http://superdupergames.org/auth.html",form.data,headers);
         yield return firstRequest;
+
+        string setCookie = firstRequest.responseHeaders["SET-COOKIE"];
+        sessionCookie = setCookie.Substring(0, setCookie.IndexOf(';'));
+
         //foreach (var key in firstRequest.responseHeaders.Keys)
         //{
         //    Debug.Log(key.ToString());
