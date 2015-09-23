@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using RestSharp;
 
 public class WebSlinger : MonoBehaviour {
 
@@ -35,18 +36,21 @@ public class WebSlinger : MonoBehaviour {
     public IEnumerator Login(string username, string password)
     {
 
-        //var client = new RestClient("http://superdupergames.org/auth.html");
-        //var request = new RestRequest(Method.POST);
-        //request.AddHeader("authorization", "Basic dG9hc3Rlcjp6dWd6d2FuZw==");
-        //request.AddHeader("content-type", "multipart/form-data; boundary=---011000010111000001101001");
-        //request.AddParameter("multipart/form-data; boundary=---011000010111000001101001", "-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"mode\"\r\n\r\nauth\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"username\"\r\n\r\ntoaster\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"password\"\r\n\r\nzugzwang\r\n-----011000010111000001101001--", ParameterType.RequestBody);
-        //IRestResponse response = client.Execute(request);
+        var client = new RestClient("http://superdupergames.org/auth.html");
+        var request = new RestRequest(Method.POST);
+        request.AddHeader("authorization", "Basic dG9hc3Rlcjp6dWd6d2FuZw==");
+        request.AddHeader("content-type", "multipart/form-data; boundary=---011000010111000001101001");
+        request.AddParameter("multipart/form-data; boundary=---011000010111000001101001", "-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"mode\"\r\n\r\nauth\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"username\"\r\n\r\ntoaster\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"password\"\r\n\r\nzugzwang\r\n-----011000010111000001101001--", ParameterType.RequestBody);
+        client.ExecuteAsync(request, (IRestResponse response) => { Debug.Log("HERE IS A THING   "+response.Content); });
 
         
-     
+
+        //Debug.Log(response.Content);
+
+        yield return null;
         //Dictionary<string, string> headers = new Dictionary<string, string>();
         //string formString = "-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"mode\"\r\n\r\nauth\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"username\"\r\n\r\ntoaster\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"password\"\r\n\r\nzugzwang\r\n-----011000010111000001101001--";
-        
+
         //byte[] postData = GetBytes(formString);
         //Hashtable table = new Hashtable();
         //table.Add("cookie", sessionCookie);
@@ -56,8 +60,8 @@ public class WebSlinger : MonoBehaviour {
         form.AddField("password", password);
         Hashtable headers = new Hashtable(form.headers);
         Debug.Log(headers["Content-Type"]);
-        headers["Content-Type"]="multipart/form-data";
-        WWW firstRequest = new WWW("http://superdupergames.org/auth.html",form.data,headers);
+        headers["Content-Type"] = "multipart/form-data";
+        WWW firstRequest = new WWW("http://superdupergames.org/auth.html", form.data, headers);
         yield return firstRequest;
 
         string setCookie = firstRequest.responseHeaders["SET-COOKIE"];
@@ -68,15 +72,15 @@ public class WebSlinger : MonoBehaviour {
         //    Debug.Log(key.ToString());
         //}
         //setCookie = firstRequest.responseHeaders["SET-COOKIE"];
-        sessionCookie = setCookie.Substring(0, setCookie.IndexOf(';')+1);
+        sessionCookie = setCookie.Substring(0, setCookie.IndexOf(';') + 1);
         Debug.Log(firstRequest.text);
 
-     
-        Dictionary<string,string> newHeaders = new Dictionary<string,string>();
-        newHeaders.Add("COOKIE",sessionCookie);
+
+        Dictionary<string, string> newHeaders = new Dictionary<string, string>();
+        newHeaders.Add("COOKIE", sessionCookie);
         Debug.Log(sessionCookie);
-       
-        WWW secondRequest = new WWW("http://superdupergames.org/main.html",null,newHeaders);
+
+        WWW secondRequest = new WWW("http://superdupergames.org/main.html", null, newHeaders);
 
         yield return secondRequest;
         Debug.Log(secondRequest.text);
