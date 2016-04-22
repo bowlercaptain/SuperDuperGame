@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using RestSharp;
+using System;
 
 public class WebSlinger : MonoBehaviour {
 
@@ -16,87 +16,57 @@ public class WebSlinger : MonoBehaviour {
         }
     }
 
-    public void Start()
+    public void Awake()
     {
-        Debug.Log("Starting");
-        StartCoroutine(Login("toaster", "zugzwang"));
+
+    }
+
+    public IEnumerator Start()
+    {
         
+        Debug.Log("Starting");
+        //if (!IsLoggedIn()) {
+            Debug.Log("No cookie, logging in");
+            yield return StartCoroutine(Login("toaster", "zugzwang"));
+        //}
+        Debug.Log("logged in");
+        yield return StartCoroutine(sendMove("29636", "c3-d4", "play_mchess"));
+        yield return StartCoroutine(sendMove("29636", "d4-c3", "play_mchess"));
+        Debug.Log("Defs sent");
     }
 
-
-    //TODO: make this persistent
-    private static string sessionCookie;
-
-    public static void sendMove(string gid, string move, string game_url)
+    bool IsLoggedIn()
     {
-        //TODO: send a message
+        return sessionCookie != null && DateTime.Now < sessionCookieExpiry;
     }
 
-    //public static string[] getHistory
+    private string sessionCookie { get { return PlayerPrefs.GetString("loginCookie", null); } set { PlayerPrefs.SetString("loginCookie", value); }  }
+    private DateTime sessionCookieExpiry { get { return DateTime.Parse(PlayerPrefs.GetString("loginCookieExpiry", null)); } set { PlayerPrefs.SetString("loginCookieExpiry", value.ToString()); } }
 
     public IEnumerator Login(string username, string password)
     {
-
-        //var client = new RestClient("http://superdupergames.org/auth.html");
-        //var request = new RestRequest(Method.POST);
-        //request.AddHeader("authorization", "Basic dG9hc3Rlcjp6dWd6d2FuZw==");
-        //request.AddHeader("content-type", "multipart/form-data; boundary=---011000010111000001101001");
-        //request.AddParameter("multipart/form-data; boundary=---011000010111000001101001", "-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"mode\"\r\n\r\nauth\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"username\"\r\n\r\ntoaster\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"password\"\r\n\r\nzugzwang\r\n-----011000010111000001101001--", ParameterType.RequestBody);
-        //client.ExecuteAsync(request, (IRestResponse response) => { Debug.Log("HERE IS A THING   "+response.Content); });
-
         
-
-        //Debug.Log(response.Content);
-
-        yield return null;
-        Debug.Log("Second frame");
-        //Dictionary<string, string> headers = new Dictionary<string, string>();
-        //string formString = "-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"mode\"\r\n\r\nauth\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"username\"\r\n\r\ntoaster\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"password\"\r\n\r\nzugzwang\r\n-----011000010111000001101001--";
-
-        //byte[] postData = GetBytes(formString);
-        //Hashtable table = new Hashtable();
-        //table.Add("cookie", sessionCookie);
         WWWForm form = new WWWForm();
         form.AddField("mode", "auth");
         form.AddField("username", username);
         form.AddField("password", password);
         Dictionary<string, string> headers = new Dictionary<string, string>(form.headers);
-        Debug.Log(headers.Keys.Count);
-        //Debug.Log(headers["Content-Type"]);
-        //headers["Content-Type"] = "multipart/form-data";
         WWW firstRequest = new WWW("http://superdupergames.org/auth.html", form.data, headers);
         yield return firstRequest;
 
         string setCookie = firstRequest.responseHeaders["SET-COOKIE"];
-        sessionCookie = setCookie.Substring(0, setCookie.IndexOf(';'));
-
-        //foreach (var key in firstRequest.responseHeaders.Keys)
-        //{
-        //    Debug.Log(key.ToString());
-        //}
-        //setCookie = firstRequest.responseHeaders["SET-COOKIE"];
+        string cookieExpirationStr = setCookie.Substring(setCookie.IndexOf("expires="));
         sessionCookie = setCookie.Substring(0, setCookie.IndexOf(';') + 1);
-        //Debug.Log(firstRequest.text);
+        sessionCookieExpiry = DateTime.Parse(cookieExpirationStr.Substring(cookieExpirationStr.IndexOf(",")));
+    }
 
-
+    public IEnumerator sendMove(string gid, string move, string game_url)
+    {
         Dictionary<string, string> newHeaders = new Dictionary<string, string>();
         newHeaders.Add("COOKIE", sessionCookie);
-        Debug.Log(sessionCookie);
-
-        
-
-        WWW secondRequest = new WWW("http://superdupergames.org/main.html?page=play_mchess&num=29636", null, newHeaders);
-
-        yield return secondRequest;
-        Debug.Log(secondRequest.text);
-
-        string request = "";
-        byte[] brequest = GetBytes(request);
-        Debug.Log(GetString(brequest));
-        WWW thirdRequest = new WWW("http://superdupergames.org/main.html?page=play_mchess&num=29636&mode=move&fullmove=d3-d4", null, newHeaders);
-
-        yield return thirdRequest;
-        Debug.Log(thirdRequest.text);
+        WWW moveRequest = new WWW("http://superdupergames.org/main.html?page=" + game_url + "&num=" + gid + "&mode=move&fullmove=" + move, null, newHeaders);
+        yield return moveRequest;
+        Debug.Log(moveRequest.text);
     }
 
     static byte[] GetBytes(string str)
