@@ -25,10 +25,10 @@ public class WebSlinger : MonoBehaviour {
     {
         
         Debug.Log("Starting");
-        //if (!IsLoggedIn()) {
+        if (!IsLoggedIn()) {
             Debug.Log("No cookie, logging in");
             yield return StartCoroutine(Login("toaster", "zugzwang"));
-        //}
+        }
         Debug.Log("logged in");
         yield return StartCoroutine(sendMove("29636", "c3-d4", "play_mchess"));
         yield return StartCoroutine(sendMove("29636", "d4-c3", "play_mchess"));
