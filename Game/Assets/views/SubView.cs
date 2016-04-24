@@ -10,9 +10,9 @@ using System.Collections.Generic;
         protected System.Action<sysObject> callback;
         protected sysObject arg;
 
-        public void Show(sysObject obj, System.Action<sysObject> callback)
+        public void Show(System.Object arg, System.Action<sysObject> callback)
         {
-            this.arg = obj;
+            this.arg = arg;
             this.callback = callback;
             Init();
         }

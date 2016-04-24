@@ -3,47 +3,27 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 
-public class WebSlinger : MonoBehaviour {
+public class WebSlinger : Singleton<WebSlinger> {
 
-    private static WebSlinger _instance;
-    
-    private static WebSlinger instance{
-        get{
-            if(_instance == null){
-                _instance = new GameObject("Webslinger", typeof(WebSlinger)).GetComponent<WebSlinger>();
-            }
-            return _instance;
-        }
-    }
 
-    public void Awake()
+
+    public override void Init()
     {
-
     }
 
-    public IEnumerator Start()
-    {
-        
-        Debug.Log("Starting");
-        if (!IsLoggedIn()) {
-            Debug.Log("No cookie, logging in");
-            yield return StartCoroutine(Login("toaster", "zugzwang"));
-        }
-        Debug.Log("logged in");
-        yield return StartCoroutine(sendMove("29636", "c3-d4", "play_mchess"));
-        yield return StartCoroutine(sendMove("29636", "d4-c3", "play_mchess"));
-        Debug.Log("Defs sent");
-    }
-
-    bool IsLoggedIn()
+    public static bool IsLoggedIn()
     {
         return sessionCookie != null && DateTime.Now < sessionCookieExpiry;
     }
 
-    private string sessionCookie { get { return PlayerPrefs.GetString("loginCookie", null); } set { PlayerPrefs.SetString("loginCookie", value); }  }
-    private DateTime sessionCookieExpiry { get { return DateTime.Parse(PlayerPrefs.GetString("loginCookieExpiry", null)); } set { PlayerPrefs.SetString("loginCookieExpiry", value.ToString()); } }
+    private static string sessionCookie { get { return PlayerPrefs.GetString("loginCookie", null); } set { PlayerPrefs.SetString("loginCookie", value); }  }
+    private static DateTime sessionCookieExpiry { get {
+            DateTime exp = DateTime.Now;
+            DateTime.TryParse(PlayerPrefs.GetString("loginCookieExpiry", null), out exp);
+            return exp;
+        } set { PlayerPrefs.SetString("loginCookieExpiry", value.ToString()); } }
 
-    public IEnumerator Login(string username, string password)
+    public static IEnumerator Login(string username, string password)//TODO: callback with bool of success.
     {
         
         WWWForm form = new WWWForm();
@@ -60,7 +40,7 @@ public class WebSlinger : MonoBehaviour {
         sessionCookieExpiry = DateTime.Parse(cookieExpirationStr.Substring(cookieExpirationStr.IndexOf(",")));
     }
 
-    public IEnumerator sendMove(string gid, string move, string game_url)
+    public static IEnumerator sendMove(string gid, string move, string game_url)
     {
         Dictionary<string, string> newHeaders = new Dictionary<string, string>();
         newHeaders.Add("COOKIE", sessionCookie);
