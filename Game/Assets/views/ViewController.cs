@@ -9,7 +9,7 @@ using System.Collections;
 
         private static string lastSceneLoaded;
 
-        public static void LoadView(string sceneName, sysObject obj, System.Action<sysObject> callback)
+        public static void LoadView<T>(string sceneName, sysObject obj, System.Action<sysObject> callback)
         {
             instance.StartCoroutine(LoadViewInternal(sceneName, obj, callback));
         }

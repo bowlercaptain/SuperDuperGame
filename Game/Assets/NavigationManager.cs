@@ -20,9 +20,15 @@ public class NavigationManager : MonoBehaviour
 
     void RecieveLogin(string[] data)
     {
-        WebSlinger.Login(data[0], data[1]);
+        StartCoroutine(RecieveLoginr(data));
+    }
+
+    IEnumerator RecieveLoginr(string[] data)
+    {
+        yield return StartCoroutine(WebSlinger.Login(data[0], data[1]));
         ShowMain();
     }
+    
 
     void ShowMain()
     {

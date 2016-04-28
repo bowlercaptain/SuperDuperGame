@@ -5,17 +5,23 @@ using System.Collections;
 using System.Collections.Generic;
 
 
-    public abstract class SubView : MonoBehaviour
+public abstract class SubView : MonoBehaviour { }
+
+public abstract class SubView<T, U> : SubView
+{
+    protected System.Action<U> callback;
+
+    public void BaseInit(T arg, System.Action<U> callback)
     {
-        protected System.Action<sysObject> callback;
-        protected sysObject arg;
-
-        public void Show(System.Object arg, System.Action<sysObject> callback)
-        {
-            this.arg = arg;
-            this.callback = callback;
-            Init();
-        }
-
-        protected abstract void Init();
+        this.callback = callback;
+        Init(arg);
     }
+
+    protected abstract void Init(T arg);
+
+    public static void Show(T arg, System.Action<U> callback, string sceneName)
+    {
+        ViewController.instance.StartCoroutine()
+    }
+
+}
