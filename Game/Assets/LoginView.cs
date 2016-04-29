@@ -11,6 +11,8 @@ public class LoginView : SubView<bool, string[]> {
     public InputField username;
     public InputField password;
 
+    private const string SCENENAME = "loginPage";
+
     protected override void Init(bool obj)
     {
         //password.inputType = InputField.InputType.Password;
@@ -21,8 +23,8 @@ public class LoginView : SubView<bool, string[]> {
         callback(new string[] { username.text, password.text });
     }
     
-    public static void Show(System.Action<string> callback)
+    public static void Show(System.Action<string[]> callback)
     {
-        //call base show or viewcontroller show with scenename THIS IS DUMB BULLSHIT FUCK YOU C# DO VTABLE LOOKUPS ON STATICS YOU LAZY ASSHOLES
+        Show(false, callback, SCENENAME);
     }
 }

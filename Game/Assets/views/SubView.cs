@@ -19,9 +19,9 @@ public abstract class SubView<T, U> : SubView
 
     protected abstract void Init(T arg);
 
-    public static void Show(T arg, System.Action<U> callback, string sceneName)
+    protected static void Show(T arg, System.Action<U> callback, string sceneName)
     {
-        ViewController.instance.StartCoroutine()
+        ViewController.instance.StartCoroutine(ViewController.LoadViewInternal(sceneName, arg, callback));
     }
 
 }

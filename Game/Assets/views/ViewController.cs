@@ -9,12 +9,7 @@ using System.Collections;
 
         private static string lastSceneLoaded;
 
-        public static void LoadView<T>(string sceneName, sysObject obj, System.Action<sysObject> callback)
-        {
-            instance.StartCoroutine(LoadViewInternal(sceneName, obj, callback));
-        }
-
-        private static IEnumerator LoadViewInternal(string sceneName, sysObject arg, System.Action<sysObject> callback)
+        public static IEnumerator LoadViewInternal<T,U>(string sceneName, T arg, System.Action<U> callback)
         {
             SceneManager.UnloadScene(lastSceneLoaded);
             SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
@@ -25,7 +20,7 @@ using System.Collections;
             currentSubView = FindObjectOfType<SubView>(); ;
             if (currentSubView != null)
             {
-                currentSubView.Show(arg, callback);
+                ((SubView<T,U>)currentSubView).BaseInit(arg, callback);
             }
             else
             {

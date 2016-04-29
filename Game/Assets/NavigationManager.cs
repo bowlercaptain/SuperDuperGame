@@ -10,7 +10,7 @@ public class NavigationManager : MonoBehaviour
     {
         if (!WebSlinger.IsLoggedIn())
         {
-            ViewController.LoadView("loginPage", null, (System.Object report) => { RecieveLogin((String[])report); });
+            LoginView.Show((string[] report) => { RecieveLogin(report); });
         }
         else
         {
